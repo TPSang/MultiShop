@@ -6,7 +6,7 @@
  * Last_Update 2021/11/08.
  * Version 1.00.
  */
-package poly.store.rest.controller;
+package poly.store.controller.rest;
 
 import java.util.List;
 

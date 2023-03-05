@@ -1,4 +1,4 @@
-package poly.store.rest.controller;
+package poly.store.controller.rest;
 
 import java.io.File;
 

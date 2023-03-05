@@ -1,6 +1,0 @@
-Bước 1: Mở phần mềm Eclipse và chọn File -> Import
-Bước 2: Cửa sổ import hiện lên và chọn Existing Projects into Workspace -> Next
-Bước 3: Cửa sổ Import Projects hiện lên chọn Browse và trỏ tới folder ECartProject đính kèm
-Bước 4: Mở Microsoft SQL Server Management Studio và mở file EShop.sql
-Bước 5: Thay đổi thông tin tương ứng trong file application.properties
-Bươc 6: Chạy dự án.
