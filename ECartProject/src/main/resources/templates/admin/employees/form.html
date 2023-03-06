@@ -27,9 +27,9 @@
 		<!-- Page -->
 		<div class="page">
 			<div class="page-header">
-				<h1 class="page-title">Thông Tin Nhân Viên</h1>
+				<h1 class="page-title">Thêm Nhân Viên</h1>
 				<ol class="breadcrumb">
-					<li class="breadcrumb-item"><a href="../index.html">Trang
+					<li class="breadcrumb-item"><a href="/admin/index">Trang
 							chủ</a></li>
 					<li class="breadcrumb-item"><a href="javascript:void(0)">Nhân
 							viên</a></li>
@@ -41,6 +41,11 @@
 				<!-- Panel Full Example -->
 				<div class="panel">
 					<div class="panel-body">
+
+						<button id="btnSave" type="button"  class="btn btn-primary " >
+							<a class="" aria-hidden="true " href="/admin/employees/list" style="color: aliceblue;">Danh Sách Nhân Viên</a>
+						</button>
+
 						<form th:action="@{/admin/employees/form}" method="post"
 							id="exampleFullForm" name="formEmployee">
 							<div class="row row-lg">

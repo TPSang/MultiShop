@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/user/layout/_form :: dynamic(
+	th:replace="~{/user/layout/_form2 :: dynamic(
 				~{::main},
 				~{::#aside},
 				~{::#material},
@@ -20,8 +20,9 @@
 			<button type="button" class="close" data-dismiss="alert">×</button>
 		</div>
 		<ul class="breadcrumb">
-			<li><a th:href="@{/index}">Trang chủ</a></li>
-			<li><a th:href="@{/register}">Đăng ký</a></li>
+			<li><a th:href="@{/register}">Đăng Ký</a></li>
+			<li><a th:href="@{/login}">Đăng nhập</a></li>
+			<li><a th:href="@{/login}">Quên MK</a></li>
 		</ul>
 	</th:block>
 	<th:block id="aside">
@@ -29,7 +30,7 @@
 	</th:block>
 
 	<main>
-		<div id="content" class="col-sm-9">
+		<div id="content" class="col-sm-6">
 			<h1>Đăng Ký</h1>
 			<p>
 				Nếu bạn đã có tài khoản với chúng tôi, vui lòng đăng nhập tại trang

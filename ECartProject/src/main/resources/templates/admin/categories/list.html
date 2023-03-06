@@ -50,12 +50,16 @@
 							class="table table-hover dataTable table-striped w-full dt-responsive nowrap"
 							datatable="ng" dt-options="vm.dtOptions"
 							dt-instance="vm.dtInstance" dt-column-defs="vm.dtColumnDefs">
+							
+							<button id="btnSave" type="button"  class="btn btn-primary" >
+								<a class="fa fa-save " aria-hidden="true " href="/admin/categories/form" style="color: aliceblue;"> Thêm Danh Mục</a>
+							</button>
 							<thead>
 								<tr>
 									<th>Tên</th>
 									<th>Tên tìm kiếm</th>
 									<th>Logo</th>
-									<th>Banner</th>
+									
 									<th>Mô tả</th>
 									<th>Hoạt động</th>
 								</tr>
@@ -65,7 +69,7 @@
 									<th>Tên</th>
 									<th>Tên tìm kiếm</th>
 									<th>Logo</th>
-									<th>Banner</th>
+									
 									<th>Mô tả</th>
 									<th>Hoạt động</th>
 								</tr>
@@ -75,8 +79,8 @@
 									<td>{{item.name}}</td>
 									<td>{{item.namesearch}}</td>
 									<td>{{item.logo}}</td>
-									<td>{{item.banner}}</td>
-									<td>{{item.description.slice(0,25)}}...</td>
+									
+									<td>{{item.description.slice(0,15)}}...</td>
 									<td><a ng-click="update(item)"
 											class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
 											title="Cập nhật">

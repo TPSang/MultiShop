@@ -1,12 +1,12 @@
 /**
- * @(#)CategoryRestController.java 2021/09/21.
+ * @(#)CategoryRestController.java 2021/09/10.
  * 
  * Copyright(C) 2021 by PHOENIX TEAM.
  * 
- * Last_Update 2021/09/21.
+ * Last_Update 2021/09/10.
  * Version 1.00.
  */
-package poly.store.controller.rest;
+package poly.store.rest.controller;
 
 import java.util.List;
 
@@ -21,9 +21,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import poly.store.entity.Manufacturer;
-import poly.store.model.ManufacturerModel;
-import poly.store.service.ManufacturerService;
+import poly.store.entity.Category;
+import poly.store.model.CategoryModel;
+import poly.store.service.CategoryService;
 
 /**
  * Class cung cap cac dich vu rest api cho bang employee
@@ -33,33 +33,33 @@ import poly.store.service.ManufacturerService;
  */
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/rest/manufactures")
-public class ManufacturerRestController {
+@RequestMapping("/rest/categories")
+public class CategoryRestController {
 	@Autowired
-	ManufacturerService manufacturerService;
+	CategoryService categoryService;
 	
 	@PostMapping("/form")
-	public ManufacturerModel create(@RequestBody ManufacturerModel manufacturerModel) {
-		return manufacturerService.createManufacturer(manufacturerModel);
+	public CategoryModel create(@RequestBody CategoryModel categoryModel) {
+		return categoryService.createCategory(categoryModel);
 	}
 	
 	@GetMapping()
-	public List<Manufacturer> getAll(){
-		return manufacturerService.findAll();
+	public List<Category> getAll(){
+		return categoryService.findAll();
 	}
 	
 	@GetMapping("/form/{id}")
-	public ManufacturerModel getOneUserById(@PathVariable("id") Integer id) {
-		return manufacturerService.getOneManufacturerById(id);
+	public CategoryModel getOneUserById(@PathVariable("id") Integer id) {
+		return categoryService.getOneCategoryById(id);
 	}
 	
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable("id") Integer id) {
-		manufacturerService.delete(id);
+		categoryService.delete(id);
 	}
 	
 	@PutMapping("/form/{id}")
-	public ManufacturerModel update(@PathVariable("id") Integer id, @RequestBody ManufacturerModel manufacturerModel) {
-		return manufacturerService.updateManufacturer(manufacturerModel);
+	public CategoryModel update(@PathVariable("id") Integer id, @RequestBody CategoryModel categoryModel) {
+		return categoryService.updateCategory(categoryModel);
 	}
 }

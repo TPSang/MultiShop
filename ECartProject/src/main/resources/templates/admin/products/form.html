@@ -27,7 +27,7 @@
 		<!-- Page -->
 		<div class="page">
 			<div class="page-header">
-				<h1 class="page-title">Thông Tin Sản Phẩm</h1>
+				<h1 class="page-title">Thêm Sản Phẩm</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="../index.html">Trang
 							chủ</a></li>
@@ -41,6 +41,10 @@
 				<!-- Panel Full Example -->
 				<div class="panel">
 					<div class="panel-body">
+						<button id="btnSave" type="button"  class="btn btn-primary " >
+							<a class="" aria-hidden="true " href="/admin/product/list" style="color: aliceblue;">Danh Sách Sản Phẩm</a>
+							
+						</button>
 						<form th:action="@{/admin/product/form}" method="post"
 							id="exampleFullForm" name="formProduct">
 							<div class="row row-lg">

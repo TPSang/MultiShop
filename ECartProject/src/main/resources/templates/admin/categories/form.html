@@ -38,9 +38,14 @@
 			</div>
 
 			<div class="page-content container-fluid">
+				
 				<!-- Panel Full Example -->
 				<div class="panel">
+					
 					<div class="panel-body">
+						<button id="btnSave" type="button"  class="btn btn-primary" >
+							<a class="" aria-hidden="true " href="/admin/categories/list" style="color: aliceblue;">Danh Sách Danh Mục</a>
+						</button>
 						<form th:action="@{/admin/categories/form}" method="post"
 							id="exampleFullForm" name="formCategory">
 							<div class="row row-lg">
@@ -123,25 +128,7 @@
 										</div>
 									</div>
 								
-									<div class="form-group row">
-										<label class="col-xl-12 col-md-3 form-control-label">Banner
-											<span class="required">*</span>
-										</label>
-										<div class="col-xl-12 col-md-9">
-											<div class="input-group input-group-file"
-												data-plugin="inputGroupFile">
-												<span class="input-group-btn "> <span
-													class="btn btn-outline btn-file input-group-addon">
-														<i class="icon wb-upload" aria-hidden="true"></i> <input
-														type="file" id="chooseBanner" accept=".png,.jpg,.jpeg">
-												</span>
-												</span> <input type="text" class="form-control"
-													placeholder="Choose a picture" readonly="readonly"
-													id="valueBanner" ng-model="form.banner">
-												<div class="invalid-tooltip" id="showErrorBanner"></div>
-											</div>
-										</div>
-									</div>
+									
 								</div>
 
 

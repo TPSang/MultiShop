@@ -42,14 +42,20 @@
 				</ol>
 			</div>
 
-			<div class="page-content">
+			<div class="page-content col-sm-12">
 				<!-- Panel Basic -->
-				<div class="panel">
+				<div class="panel  ">
 					<div class="panel-body">
 						<table
 							class="table table-hover dataTable table-striped w-full dt-responsive nowrap"
 							datatable="ng" dt-options="vm.dtOptions"
 							dt-instance="vm.dtInstance" dt-column-defs="vm.dtColumnDefs">
+
+							<button id="btnSave" type="button"  class="btn btn-primary " >
+								<a class="" aria-hidden="true " href="/admin/employees/form" style="color: aliceblue;">Thêm Nhân Viên</a>
+							</button>
+							<br> 
+							<br>
 							<thead>
 								<tr>
 									<th>Email</th>

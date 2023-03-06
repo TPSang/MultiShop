@@ -27,7 +27,7 @@
 		<!-- Page -->
 		<div class="page">
 			<div class="page-header">
-				<h1 class="page-title">Thông Tin Thương Hiệu</h1>
+				<h1 class="page-title">Thêm Thương Hiệu</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="../index.html">Trang
 							chủ</a></li>
@@ -40,6 +40,11 @@
 				<!-- Panel Full Example -->
 				<div class="panel">
 					<div class="panel-body">
+						<button id="btnSave" type="button"  class="btn btn-primary " >
+							<a class="" aria-hidden="true " href="/admin/manufactures/list" style="color: aliceblue;">Daanh Sách Thương Hiệu</a>
+							
+						</button>
+
 						<form th:action="@{/admin/manufactores/form}" method="post"
 							id="exampleFullForm" name="formManufacturer">
 							<div class="row row-lg">

@@ -50,6 +50,23 @@
 							class="table table-hover dataTable table-striped w-full dt-responsive nowrap"
 							datatable="ng" dt-options="vm.dtOptions"
 							dt-instance="vm.dtInstance" dt-column-defs="vm.dtColumnDefs">
+
+							<div class="form-group col-xl-12 text-light padding-top-m">
+								<button id="btnSave" type="button"  class="btn btn-primary " >
+									<a class="" aria-hidden="true " href="/admin/order/list/pending" style="color: aliceblue;">Đang Chờ Duyệt</a>
+									
+								</button>
+								<button id="btnSave" type="button"  class="btn btn-warning " >
+									<a class="" aria-hidden="true " href="/admin/order/list/shipping" style="color: aliceblue;"> Chờ Vận Chuyển</a>
+									
+								</button>
+								<button id="btnSave" type="button"  class="btn btn-success " >
+									<a class="" aria-hidden="true " href="/admin/order/list/success" style="color: aliceblue;">Đã Hoàn Thành</a>
+									
+								</button>
+								
+								</div>
+							
 							<thead>
 								<tr>
 									<th>Mã đơn hàng</th>
@@ -72,7 +89,7 @@
 									<th>Hoạt động</th>
 								</tr>
 							</tfoot>
-							<tbody>
+							<tbody >
 								<tr ng-repeat="item in items">
 									<td>#{{item.id}}</td>
 									<td>{{item.name}}</td>

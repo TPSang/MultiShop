@@ -13,7 +13,6 @@
 <body>
 	<th:block id="breadcums"></th:block>
 	<th:block id="aside">
-		<div th:replace="/user/home/our_testimonial.html"></div>
 		<div class="swiper-viewport">
 			<div id="banner0" class="swiper-container">
 				<div class="swiper-wrapper">
@@ -24,12 +23,14 @@
 					</div>
 				</div>
 			</div>
+			
 		</div>
 
 		<div th:replace="/user/home/special_product.html"></div>
-
-		<div th:replace="/user/home/newsletter.html"></div>
+		<div th:replace="/user/home/our_service.html"></div>
+		
 	</th:block>
+	
 
 	<main>
 		<div id="content" class="col-sm-6">
@@ -94,19 +95,11 @@
 				</div>
 			</div>
 
-			<div th:replace="/user/home/our_service.html"></div>
+			
 
 			<div th:replace="/user/home/deal_of_the_day.html"></div>
 
-			<div class="swiper-viewport">
-				<div id="banner2" class="swiper-container">
-					<div class="swiper-wrapper">
-						<div class="swiper-slide">
-							<a href="#"><img
-								src="/assets/user/image/cache/catalog/banners/cat-rightbanner2-290x450.jpg"
-								alt="Right Banner2" class="img-responsive" /></a>
-						</div>
-					</div>
+			
 				</div>
 			</div>
 		</aside>

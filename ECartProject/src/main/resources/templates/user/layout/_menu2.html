@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="top-header">
+		<nav id="top"></nav>
+		<header>
+			<div class="container">
+				<div class="row">
+					<div class="header-top">
+						<div class="customer-support col-md-4 hidden-xs">
+							<!-- start logo -->
+							<a href="/index"><img
+								th:src="@{|/assets/user/image/catalog/${information.logo}|}"
+								title="Your Store" alt="Your Store" class="img-responsive" /></a>
+						</div>
+
+						
+						
+
+						<div class="header-links col-md-8">
+							<!-- start account -->
+							<div id="header_ac" class="dropdown">
+								<a href="#" title="My Account" class="dropdown-toggle"
+									data-toggle="dropdown"> <i class="fa fa-user"></i> <span
+									class="account-main hidden-sm hidden-xs"> <span>Tài
+											Khoản</span> <th:block th:unless="${#request.remoteUser}">
+											<span>Đăng ký</span>
+										</th:block> <th:block th:if="${#request.remoteUser}">
+											<span>Xin chào!</span>
+										</th:block>
+								</span>
+								</a>
+								<ul
+									class="dropdown-menu dropdown-menu-right account-link-toggle">
+									<th:block th:if="${#request.remoteUser}">
+										<th:block
+											th:if="${#request.isUserInRole('ROLE_ADMIN') || #request.isUserInRole('ROLE_DIRECTOR')}">
+											<li><a th:href="@{/admin/index}">Quản lý</a></li>
+										</th:block>
+										<li><a th:href="@{/account}">Thông tin</a></li>
+										<li><a th:href="@{/order}">Đơn hàng</a></li>
+										<li><a th:href="@{/logout}">Đăng xuất</a></li>
+									</th:block>
+									<th:block th:unless="${#request.remoteUser}">
+										<li><a th:href="@{/register}">Đăng ký</a></li>
+										<li><a th:href="@{/login}">Đăng nhập</a></li>
+										<li><a th:href="@{/forget-password}">Quên mật khẩu</a></li>
+									</th:block>
+									<li class="language">
+										<div class="language-box">
+											<form action="#" method="post" enctype="multipart/form-data"
+												id="form-language">
+												<button class="btn btn-link dropdown-toggle"
+													data-toggle="dropdown">
+													<span class="drop-text">Ngôn ngữ:</span> <span class="code">vi-en</span>
+												</button>
+												<ul class="language-dropdown lang">
+													<li>
+														<button class="btn btn-link btn-block language-select"
+															type="button" name="en-gb">
+															<img src="/assets/user/catalog/language/vi/vi.png"
+																alt="VietName" title="VietName" /> VietNam
+														</button>
+													</li>
+													<li>
+														<button class="btn btn-link btn-block language-select"
+															type="button" name="ar">
+															<img src="/assets/user/catalog/language/en-gb/en-gb.png"
+																alt="English" title="English" /> English
+														</button>
+													</li>
+												</ul>
+												<input type="hidden" name="code" value="" /> <input
+													type="hidden" name="redirect" value="#" />
+											</form>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<!-- start cart -->
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+		</header>
+	</div>
+</body>
+</html>

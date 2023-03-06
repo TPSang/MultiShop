@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/user/layout/_form :: dynamic(
+	th:replace="~{/user/layout/_form2 :: dynamic(
 				~{::main},
 				~{::#aside},
 				~{::#material},
 				~{::#breadcums}
 				)}">
 <head>
+	
+	
 <meta charset="UTF-8">
 <title>Login</title>
 </head>
-<body>
+<body >
 	<th:block id="breadcums">
 		<ul class="breadcrumb">
-			<li><a th:href="@{/index}">Trang chủ</a></li>
+			<li><a th:href="@{/register}">Đăng Ký</a></li>
 			<li><a th:href="@{/login}">Đăng nhập</a></li>
+			<li><a th:href="@{/login}">Quên MK</a></li>
+			
 		</ul>
 	</th:block>
 	<th:block id="aside">
@@ -22,19 +26,11 @@
 	</th:block>
 
 	<main>
-		<div id="content" class="col-sm-9">
+		<div id="content" class="col-sm-12">
 			<div class="row">
-				<div class="col-sm-6">
-					<div class="well">
-						<h2>Khách Hàng Mới</h2>
-						<p>
-							<strong>Đăng Ký Tài Khoản</strong>
-						</p>
-						<p>Bằng cách tạo tài khoản, bạn sẽ có thể mua sắm nhanh hơn,
-							cập nhật trạng thái đơn hàng và theo dõi các đơn hàng bạn đã thực
-							hiện trước đó.</p>
-						<a th:href="@{/register}" class="btn btn-primary">Đăng ký</a>
-					</div>
+				<div class="col-sm-3">
+					
+						
 				</div>
 				<div class="col-sm-6">
 					<div class="well">
@@ -67,7 +63,19 @@
 								<a th:href="@{/forget-password}">Quên mật khẩu?</a>
 							</div>
 							<input type="submit" value="Đăng nhập" class="btn btn-primary" />
+							
 						</form>
+						
+					</div>
+					<div class="well">
+						<h2>Khách Hàng Mới</h2>
+						<p>
+							<strong>Đăng Ký Tài Khoản</strong>
+						</p>
+						<p>Bằng cách tạo tài khoản, bạn sẽ có thể mua sắm nhanh hơn,
+							cập nhật trạng thái đơn hàng và theo dõi các đơn hàng bạn đã thực
+							hiện trước đó.</p>
+						<a th:href="@{/register}" class="btn btn-primary">Đăng ký</a>
 					</div>
 				</div>
 			</div>
