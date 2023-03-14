@@ -61,6 +61,15 @@ public class IndexController {
 		List<Manufacturer> list = manufacturerService.findAll();
 		return list;
 	}
+	@GetMapping({ "/", "/blog2" })
+	public String blog2() {
+		return Constants.USER_DISPLAY_ACCOUNT_BLOG2;
+	}
+	
+	@GetMapping({ "/", "/thuonghieu" })
+	public String thuonghieu() {
+		return Constants.USER_DISPLAY_ACCOUNT_THUONGHIEU;
+	}
 	
 	@ModelAttribute("latestProduct")
 	public List<List<ShowProduct>> getLatestProduct(Model model) {

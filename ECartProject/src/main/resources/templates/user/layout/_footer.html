@@ -14,17 +14,16 @@
 							<div class="position-footer-left">
 								<div class="footer_aboutus">
 									<div class="about-cms">
-										<a href="#"> <img alt=""
-											th:src="@{|/assets/user/image/catalog/${information.Logofooter}|}" style="width: 60%;">
+										<a href="/index"> <img alt=""
+											th:src="@{|/assets/user/image/catalog/${information.Logofooter}|}" style="width: 80%;">
 										</a>
-										<div class="footer-desc">Địa chỉ: [[${information.address}]]. Tổng đài hỗ trợ: [[${information.phone}]] - Email:
-											[[${information.email}]]. Bản quyền thuộc về
-											Phoenix Team.</div>
+										<div class="footer-desc"> Bản quyền thuộc về
+											Team 5 TV.</div>
 									</div>
 								</div>
 								<div class="social-media">
 									<div class="social-media-inner">
-										<a href="#"><i class="fa fa-facebook"></i></a> <a href="#"><i
+										<a href="https://www.facebook.com/trantrongduy1902"><i class="fa fa-facebook"></i></a> <a href="#"><i
 											class="fa fa-twitter"></i></a> <a href="#"><i
 											class="fa fa-youtube-play"></i></a> <a href="#"><i
 											class="fa fa-google-plus"></i></a> <a href="#"><i
@@ -46,12 +45,7 @@
 												<div class="contact_site">[[${information.fax}]]</div>
 											</div>
 										</li>
-										<li>
-											<div class="fax">
-												<i class="fa fa-fax"></i>
-												<div class="contact_site">[[${information.phone}]]</div>
-											</div>
-										</li>
+									
 										<li>
 											<div class="email">
 												<i class="fa fa-envelope"></i>
@@ -72,10 +66,9 @@
 										<h5>Thông Tin</h5>
 										<ul class="list-unstyled">
 											<li><a href="">Về chúng tôi </a></li>
-											<li><a href="">Thông tin giao hàng</a></li>
-											<li><a href="">Chính sách</a></li>
-											<li><a href="">Điều khoản &amp; Quy định</a></li>
-											<li><a href="">Liên hệ chúng tôi</a></li>
+											<li><a href="/contact">Liên hệ chúng tôi</a></li>
+											<li><a href="/thuonghieu">Thương Hiệu</a></li>
+											<li > <a href="/blog2">Blogs</a></li>
 										</ul>
 									</div>
 								</div>
@@ -83,34 +76,61 @@
 									<div class="footer-content">
 										<h5>Tài khoản</h5>
 										<ul class="list-unstyled">
-											<li><a href=""> Thông tin</a></li>
-											<li><a href=""> Đơn hàng</a></li>
-											<li><a href="">Yêu thích</a></li>
+											<li><a href="/account/information"> Thông tin</a></li>
+											<li><a href="/account/information"> Đơn hàng</a></li>
+											<li><a href="/account/favorite">Yêu thích</a></li>
 											
 										</ul>
 									</div>
 								</div>
 								<div class="col-sm-3">
-									<div class="footer-content">
-										<h5>Chính Sách</h5>
-										<ul class="list-unstyled ">
-											<li ><a class="fa fa-check ">-Thương hiệu</a></li>
-											<li><a class="fas fa-exchange-alt">-Đổi Trả</a></li>
-											<li><a class="fa fa-phone-volume ">-Hỗ Trợ 24/7</a></li>
+									
+
+									<div class="contact-detail col-sm-3">
+										<h5 class="toggled title">Chính Sách</h5>
+										<ul class="list-unstyled">
+											<li>
+												<div class="site">
+													<i class="fa fa-check"></i>
+													<div class="contact_site">Chính Hãng</div>
+												</div>
+											</li>
+											<li>
+												<div class="phone">
+													<i class="fas fa-exchange-alt"></i>
+													<div class="contact_site">Đổi Trả</div>
+												</div>
+											</li>
+											<li>
+												<div class="fax">
+													<i class="fa fa-phone-volume"></i>
+													<div class="contact_site">Hỗ Trợ 24/7</div>
+												</div>
+											</li>
+											<li>
+												<div class="fax">
+													<i class="fa fa-truck"></i>
+													<div class="contact_site">Giao Hàng Nhanh</div>
+												</div>
+											</li>
+											
 										</ul>
 									</div>
+									
+								
 								</div>
-							</div>
-							<div class="footer_bottom col-xs-12">
-								<p class="powered">
-									Bản quyền thuộc về nhóm <a href="">Phoenix</a> &copy; 2021
-								</p>
-								<div class="position-footer-bottom">
-									<div class="payment-link">
+								<div class="footer_bottom col-xs-12">
+									<br>
+									<div class="payment-link" >
+										<a style="color: aliceblue; font-size: 16px;">Chấp Nhận Thanh Toán:</a>
 										<img src="/assets/user/image/catalog/payment.png" alt="">
 									</div>
+								
+									
 								</div>
 							</div>
+							</div>
+							
 						</div>
 					</div>
 

@@ -30,7 +30,7 @@
 <body>
 	<main ng-app="comment-app" ng-controller="comment-ctrl">
 		<div class="page">
-			<div class="page-header">
+			<div class="page-header"  style="width: 900px; margin-left: 100px;">
 				<h1 class="page-title">Danh Sách Bình Luận Đang Chờ</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a th:href="@{/admin/index}">Trang
@@ -41,7 +41,7 @@
 				</ol>
 			</div>
 
-			<div class="page-content">
+			<div class="page-content"  style="width: 900px; margin-left: 100px;">
 				<!-- Panel Basic -->
 				<div class="panel">
 					<div class="panel-body">
@@ -51,7 +51,7 @@
 							dt-instance="vm.dtInstance" dt-column-defs="vm.dtColumnDefs">
 
 							<button id="btnSave" type="button"  class="btn btn-primary " >
-								<a class="" aria-hidden="true " href="/admin/comment/list/approved" style="color: aliceblue;">Đã Duyệt</a>
+								<a class="" aria-hidden="true " href="/admin/comment/list/approved" style="color: aliceblue; text-decoration: none">Đã Duyệt</a>
 								
 							</button>
 							<br> 

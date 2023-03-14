@@ -20,33 +20,25 @@
 				data-target="#site-navbar-collapse" data-toggle="collapse">
 				<i class="icon wb-more-horizontal" aria-hidden="true"></i>
 			</button>
+			<a href="/admin/index"> <img class="navbar-brand-logo"
+				  src="/assets/admin/base/assets/images/logo.png" title="" style="width: 50px;  height: 70px;"  ></a>
 			<div class="navbar-brand navbar-brand-center">
-				<a class="navbar-brand-text hidden-xs-down"   style="color: aliceblue;">ADMIN
+				<a class="navbar-brand-text hidden-xs-down "   style="color: aliceblue;text-decoration: none " href="/admin/index">ADMIN
 				
-				  </a> <a href="/admin/index"><img class="navbar-brand-logo"
-				  src="/assets/admin/base/assets/images/logo.png" title="" style="width: 50px;  height: 50px;"  ></a>
+				  </a> 
 			</div>
-			<button type="button" class="navbar-toggler collapsed"
-				data-target="#site-navbar-search" data-toggle="collapse">
-				<span class="sr-only">Toggle Search</span> <i class="icon wb-search"
-					aria-hidden="true"></i>
-			</button>
+			
 		</div>
 
 		<div class="navbar-container container-fluid">
-			<!-- Navbar Collapse -->
+			<!-- Navbar Collapse --><button id="btnSave" type="button"  class="btn btn-primary "   >
+							<a class="fa fa-home  " ><a style="margin-left: 5px; color: aliceblue;text-decoration: none;  "href="/index">HOME</a></a>
+							
+						</button>
 			<div class="collapse navbar-collapse navbar-collapse-toolbar"
 				id="site-navbar-collapse">
 				<!-- Navbar Toolbar -->
-				<ul class="nav navbar-toolbar">
-					<li class="nav-item hidden-float" id="toggleMenubar"><a
-						class="nav-link" data-toggle="menubar" href="#" role="button">
-							<i class="icon hamburger hamburger-arrow-left"> <span
-								class="sr-only">Toggle menubar</span> <span
-								class="hamburger-bar"></span>
-						</i>
-					</a></li>
-				</ul>
+				
 				<!-- End Navbar Toolbar -->
 
 				<!-- Navbar Toolbar Right -->
@@ -73,17 +65,14 @@
 						</span>
 					</a>
 						<div class="dropdown-menu" role="menu">
-							<a class="dropdown-item" href="javascript:void(0)"
-								role="menuitem"><i class="icon wb-user" aria-hidden="true"></i>
-								Profile</a> <a class="dropdown-item" href="javascript:void(0)"
-								role="menuitem"><i class="icon wb-payment"
-								aria-hidden="true"></i> Billing</a> <a class="dropdown-item"
-								href="javascript:void(0)" role="menuitem"><i
-								class="icon wb-settings" aria-hidden="true"></i> Settings</a>
+							 <a class="dropdown-item" href="/index"
+								role="menuitem"><i class="fa fa-home"
+								aria-hidden="true"></i> HOME</a> 
 							<div class="dropdown-divider" role="presentation"></div>
-							<a class="dropdown-item" href="javascript:void(0)"
+							<a class="dropdown-item"  th:href="@{/logout}"
 								role="menuitem"><i class="icon wb-power" aria-hidden="true"></i>
 								Logout</a>
+					
 						</div></li>
 				</ul>
 				<!-- End Navbar Toolbar Right -->

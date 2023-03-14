@@ -26,7 +26,7 @@
 	<main ng-app="employee-form-app" ng-controller="employee-form-ctrl">
 		<!-- Page -->
 		<div class="page">
-			<div class="page-header">
+			<div class="page-header" style="width: 900px; margin-left: 100px;">
 				<h1 class="page-title">Thêm Nhân Viên</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="/admin/index">Trang
@@ -37,13 +37,13 @@
 				</ol>
 			</div>
 
-			<div class="page-content container-fluid">
+			<div class="page-content container-fluid" style="width: 900px; margin-left: 100px;">
 				<!-- Panel Full Example -->
 				<div class="panel">
 					<div class="panel-body">
 
 						<button id="btnSave" type="button"  class="btn btn-primary " >
-							<a class="" aria-hidden="true " href="/admin/employees/list" style="color: aliceblue;">Danh Sách Nhân Viên</a>
+							<a class="" aria-hidden="true " href="/admin/employees/list" style="color: aliceblue; text-decoration: none">Danh Sách Nhân Viên</a>
 						</button>
 
 						<form th:action="@{/admin/employees/form}" method="post"

@@ -1,15 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org"
-	th:replace="~{/user/layout/_form :: dynamic(
+<html xmlns:th="http://www.thymeleaf.org" th:replace="~{/user/layout/_form :: dynamic(
 				~{::main},
 				~{::#aside},
 				~{::#material},
 				~{::#breadcums}
 				)}">
+
 <head>
-<meta charset="UTF-8">
-<title>Index</title>
+	<meta charset="UTF-8">
+	<title>Index</title>
 </head>
+
+<style>
+
+</style>
+
 <body>
 	<th:block id="breadcums"></th:block>
 	<th:block id="aside">
@@ -17,20 +22,18 @@
 			<div id="banner0" class="swiper-container">
 				<div class="swiper-wrapper">
 					<div class="swiper-slide">
-						<a href="#"><img
-							src="/assets/user/image/cache/catalog/banners/cat-leftbanner-290x450.jpg"
-							alt="Left Banner" class="img-responsive" /></a>
+						<a href="/san-pham/samsung-galaxy-a12"><img src="https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/s/2/s23-ultra-tim.png" style="height: 250px; width: 300px;"
+								alt="Left Banner" class=" img-fluid" /></a>
 					</div>
 				</div>
 			</div>
-			
-		</div>
 
+		</div>
 		<div th:replace="/user/home/special_product.html"></div>
 		<div th:replace="/user/home/our_service.html"></div>
-		
+
 	</th:block>
-	
+
 
 	<main>
 		<div id="content" class="col-sm-6">
@@ -43,15 +46,14 @@
 						<div class="col-xs-6">
 							<div class="banner1">
 								<div class="inner1">
-									<a href="#"><img
-										src="/assets/user/image/catalog/banners/banner1.jpg" alt=""
-										class="img-responsive"></a>
+									<a href="#"><img src="/assets/user/image/catalog/banners/banner1.jpg" alt=""
+											class="img-responsive"></a>
 								</div>
 								<div class="inner2">
 									<div class="promo-text-box">
 										<div class="promo-desc">Get Save 35% Off</div>
 										<h3 class="promo-title">Samsung Charger</h3>
-										<a class="button btn" href="#">shop now</a>
+										<a class="button btn" href="#">Mua</a>
 									</div>
 								</div>
 							</div>
@@ -59,15 +61,14 @@
 						<div class="col-xs-6">
 							<div class="banner2">
 								<div class="inner1">
-									<a href="#"><img
-										src="/assets/user/image/catalog/banners/banner2.jpg" alt=""
-										class="img-responsive"></a>
+									<a href="#"><img src="/assets/user/image/catalog/banners/banner2.jpg" alt=""
+											class="img-responsive"></a>
 								</div>
 								<div class="inner2">
 									<div class="promo-text-box">
 										<div class="promo-desc">Get Save 45% Off</div>
 										<h3 class="promo-title">Google Home Mini</h3>
-										<a class="button btn" href="#">shop now</a>
+										<a class="button btn" href="#">Mua</a>
 									</div>
 								</div>
 							</div>
@@ -87,20 +88,19 @@
 				<div id="banner1" class="swiper-container">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<a href="#"><img
-								src="/assets/user/image/cache/catalog/banners/cat-rightbanner-290x450.jpg"
-								alt="Right Banner" class="img-responsive" /></a>
+							<a href="#"><img src="/assets/user/image/cache/catalog/banners/cat-rightbanner-290x450.jpg"
+									alt="Right Banner" class="img-responsive" /></a>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			
+
 
 			<div th:replace="/user/home/deal_of_the_day.html"></div>
 
-			
-				</div>
+
+			</div>
 			</div>
 		</aside>
 	</main>
@@ -108,4 +108,5 @@
 </body>
 <th:block id="material">
 </th:block>
+
 </html>

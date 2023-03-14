@@ -26,7 +26,7 @@
 	<main ng-app="category-form-app" ng-controller="category-form-ctrl">
 		<!-- Page -->
 		<div class="page">
-			<div class="page-header">
+			<div class="page-header"  style="width: 900px; margin-left: 100px;">
 				<h1 class="page-title">Thông Tin Danh Mục</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="../index.html">Trang
@@ -37,14 +37,14 @@
 				</ol>
 			</div>
 
-			<div class="page-content container-fluid">
+			<div class="page-content container-fluid"  style="width: 900px; margin-left: 100px;">
 				
 				<!-- Panel Full Example -->
 				<div class="panel">
 					
 					<div class="panel-body">
 						<button id="btnSave" type="button"  class="btn btn-primary" >
-							<a class="" aria-hidden="true " href="/admin/categories/list" style="color: aliceblue;">Danh Sách Danh Mục</a>
+							<a class="" aria-hidden="true " href="/admin/categories/list" style="color: aliceblue;text-decoration: none">Danh Sách Danh Mục</a>
 						</button>
 						<form th:action="@{/admin/categories/form}" method="post"
 							id="exampleFullForm" name="formCategory">

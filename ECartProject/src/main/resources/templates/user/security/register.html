@@ -20,9 +20,9 @@
 			<button type="button" class="close" data-dismiss="alert">×</button>
 		</div>
 		<ul class="breadcrumb">
-			<li><a th:href="@{/register}">Đăng Ký</a></li>
 			<li><a th:href="@{/login}">Đăng nhập</a></li>
-			<li><a th:href="@{/login}">Quên MK</a></li>
+			<li><a th:href="@{/forget-password}">Quên MK</a></li>
+			<li><a   th:href="@{/register}">Đăng Ký  </a></li>
 		</ul>
 	</th:block>
 	<th:block id="aside">
@@ -30,11 +30,18 @@
 	</th:block>
 
 	<main>
-		<div id="content" class="col-sm-6">
-			<h1>Đăng Ký</h1>
+		<div id="content" class="col-sm-12">
+		<div class="col-sm-5 ">
+			<img src="https://www.techone.vn/wp-content/uploads/2022/09/14-prm-den-1-02.jpg" alt="Main-banner1" style="width: 500px;  border-radius: 10px;"  class=" img-fluid">
+				
+		</div>
+
+		<div  class="col-sm-7 pull-right">
+			<div class="well">
+			<h1 style="color: #ff702e;">Đăng Ký</h1>
 			<p>
 				Nếu bạn đã có tài khoản với chúng tôi, vui lòng đăng nhập tại trang
-				<a style="color: #ffc843;" th:href="@{/login}">đăng nhập</a>.
+				<a style="color: #ff702e;" th:href="@{/login}">đăng nhập</a>.
 			</p>
 			<form th:action="@{/register}" method="post"
 				th:object="${userRegister}" class="form-horizontal">
@@ -89,23 +96,11 @@
 						</div>
 					</div>
 				</fieldset>
-				<fieldset>
-					<legend>Bản tin</legend>
-					<div class="form-group">
-						<label class="col-sm-2 control-label">Đăng ký</label>
-						<div class="col-sm-10">
-							<label class="radio-inline"> <input type="radio"
-								th:field="*{subscribe}" value="1" /> Có
-							</label> <label class="radio-inline"> <input type="radio"
-								th:field="*{subscribe}" value="0" checked="checked" /> Không
-							</label>
-						</div>
-					</div>
-				</fieldset>
+				
 
 				<div class="buttons">
 					<div class="text-right">
-						Tôi đã đọc và đồng ý với <a href="" class="agree"><b>chính
+						Tôi đã đọc và đồng ý với <a href="#" ><b>chính
 								sách bảo mật</b></a> <input type="checkbox" th:field="*{confirmTerm}" />
 						&nbsp; <input type="submit" value="Tiếp tục"
 							class="btn btn-primary" />
@@ -113,6 +108,8 @@
 				</div>
 			</form>
 		</div>
+		</div>
+	</div>
 	</main>
 </body>
 <th:block id="material">

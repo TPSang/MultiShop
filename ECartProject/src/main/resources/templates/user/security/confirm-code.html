@@ -16,7 +16,7 @@
 		<ul class="breadcrumb">
 			<li><a th:href="@{/register}">Đăng Ký</a></li>
 			<li><a th:href="@{/login}">Đăng nhập</a></li>
-			<li><a th:href="@{/login}">Quên MK</a></li>
+			<li><a th:href="@{/forget-password}">Quên MK</a></li>
 		</ul>
 	</th:block>
 	<th:block id="aside">
@@ -25,6 +25,7 @@
 
 	<main>
 		<div id="content" class="col-sm-6">
+		<div class="well">
 			<h1>Xác Nhận Email</h1>
 			<p>Nhập code gửi về qua email của bạn để hoàn tất quá trình đăng
 				ký.</p>
@@ -61,6 +62,7 @@
 					</div>
 				</div>
 			</form>
+		</div>
 		</div>
 	</main>
 </body>
