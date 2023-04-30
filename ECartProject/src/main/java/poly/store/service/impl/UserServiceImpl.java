@@ -13,8 +13,10 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import poly.store.baseResponse.BaseResponese;
 import poly.store.dao.UserDao;
 import poly.store.entity.User;
 import poly.store.model.ChangePassModel;
@@ -32,8 +34,11 @@ import poly.store.service.UserService;
 public class UserServiceImpl implements UserService {
 	// Thong tin class User Dao
 	@Autowired
-	UserDao userDao;
-	
+	private UserDao userDao;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
+
 	/**
 	 * Tim user bang email truyen vao
 	 * 
@@ -57,12 +62,13 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public List<User> findAll() {
-		return userDao.findAll();
+	public BaseResponese getAll() {
+		return new BaseResponese("1", "Get Data Success", userDao.findAll());
 	}
 
 	@Override
 	public User create(User user) {
+		user.setPassword(passwordEncoder.encode(user.getPassword()));
 		return userDao.save(user);
 	}
 
@@ -75,18 +81,18 @@ public class UserServiceImpl implements UserService {
 	public InformationModel getUserAccount() {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = ((UserDetails) principal).getUsername();
-		
+
 		User user = userDao.findUserByEmail(username);
-		
+
 		InformationModel information = new InformationModel();
-		
+
 		information.setPassword(user.getPassword());
 		information.setFullName(user.getFullname());
 		information.setEmail(user.getEmail());
 		information.setBirthday(user.getBirthday());
 		information.setGender(user.getSex());
 		information.setNews(user.getSubscribe());
-		
+
 		return information;
 	}
 
@@ -94,16 +100,16 @@ public class UserServiceImpl implements UserService {
 	public InformationModel update(InformationModel informationModel) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = ((UserDetails) principal).getUsername();
-		
+
 		User user = userDao.findUserByEmail(username);
-		
+
 		user.setFullname(informationModel.getFullName());
 		user.setBirthday(informationModel.getBirthday());
 		user.setSubscribe(informationModel.getNews());
 		user.setSex(informationModel.getGender());
-		
+
 		userDao.save(user);
-		
+
 		return informationModel;
 	}
 
@@ -111,13 +117,18 @@ public class UserServiceImpl implements UserService {
 	public ChangePassModel updatePass(ChangePassModel changePassModel) {
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		String username = ((UserDetails) principal).getUsername();
-		
+
 		User user = userDao.findUserByEmail(username);
-		
+
 		user.setPassword(changePassModel.getNewPass());
-		
+
 		userDao.save(user);
-		
+
 		return changePassModel;
+	}
+
+	@Override
+	public List<?> findUser() {
+		return userDao.findUser(); 
 	}
 }

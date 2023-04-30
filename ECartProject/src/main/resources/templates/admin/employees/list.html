@@ -29,9 +29,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<main ng-app="employee-app" ng-controller="employee-ctrl">
+	<main ng-app="employee-app" ng-controller="employee-ctrl"
+		ng-init="getAll()">
 		<div class="page">
-			<div class="page-header"  style="width: 900px; margin-left: 100px;">
+			<div class="alert alert-{{color}} alert-dismissible  ">
+				<div class="text">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>{{message}} !</strong>
+				</div>
+			</div>
+			<div class="page-header">
 				<h1 class="page-title">Danh Sách Nhân Viên</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a th:href="@{/admin/index}">Trang
@@ -42,19 +49,21 @@
 				</ol>
 			</div>
 
-			<div class="page-content col-sm-12"  style="width: 900px; margin-left: 100px;">
+			<div class="page-content">
 				<!-- Panel Basic -->
-				<div class="panel  ">
+				<div class="panel">
 					<div class="panel-body">
 						<table
 							class="table table-hover dataTable table-striped w-full dt-responsive nowrap"
 							datatable="ng" dt-options="vm.dtOptions"
 							dt-instance="vm.dtInstance" dt-column-defs="vm.dtColumnDefs">
 
-							<button id="btnSave" type="button"  class="btn btn-primary " >
-								<a class="" aria-hidden="true " href="/admin/employees/form" style="color: aliceblue; text-decoration: none">Thêm Nhân Viên</a>
+							<button id="btnSave" type="button" class="btn btn-primary ">
+								<a class="" aria-hidden="true " href="/admin/employees/form"
+									style="color: aliceblue; text-decoration: none">Thêm Nhân
+									Viên</a>
 							</button>
-							<br> 
+							<br>
 							<br>
 							<thead>
 								<tr>
@@ -83,7 +92,7 @@
 								</tr>
 							</tfoot>
 							<tbody>
-								<tr ng-repeat="item in items">
+								<tr ng-repeat="item in data">
 									<td>{{item.user.email}}</td>
 									<td>{{item.user.fullname}}</td>
 									<td>{{item.user.listEmployee[0].department}}</td>
@@ -98,13 +107,10 @@
 										class="badge badge-info"
 										ng-if="item.role.name == 'ROLE_DIRECTOR'">Trưởng phòng</span>
 									</td>
-									<td><a ng-click="update(item)"
-											class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
-											title="Cập nhật">
-											<i class="icon wb-edit"></i>
-										</a> <a ng-click="showModal(item)"
-										class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"><i
-											class="icon wb-trash" title="Xóa"></i></a></td>
+									<td style="text-align: center;"><a ng-click="update(item)"
+										class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
+										title="Cập nhật"> <i class="icon wb-edit"></i>
+									</a></td>
 								</tr>
 							</tbody>
 						</table>
@@ -113,55 +119,6 @@
 				<!-- End Panel Basic -->
 			</div>
 		</div>
-		<!-- Modal -->
-		<div class="modal fade modal-warning" id="modal">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-						<h4 class="modal-title">Thông Báo!</h4>
-					</div>
-					<div class="modal-body">
-						<p>Bạn có chắc muốn xóa nhân viên hay không?</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-						<button type="button" ng-click="delete()" id="checkClick"
-							class="btn btn-primary" data-dismiss="modal">Xác nhận</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Modal -->
-
-		<!-- Modal -->
-		<div class="modal fade"
-			ng-class="{true:'modal-info', false:'modal-danger'}[info.status]"
-			id="modalInfo">
-			<div class="modal-dialog">
-				<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal"
-							aria-label="Close">
-							<span aria-hidden="true">×</span>
-						</button>
-						<h4 class="modal-title">{{info.alert}}</h4>
-					</div>
-					<div class="modal-body">
-						<p>{{info.content}}</p>
-					</div>
-					<div class="modal-footer">
-						<button type="button" class="btn"
-							ng-class="{true:'btn-info', false:'btn-danger'}[info.status]"
-							data-dismiss="modal">Xác nhận</button>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- End Modal -->
 		<input type="hidden" id="username" th:value="${username}">
 	</main>
 </body>

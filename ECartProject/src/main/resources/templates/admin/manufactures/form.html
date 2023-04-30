@@ -26,7 +26,7 @@
 	<main ng-app="manufacturer-form-app" ng-controller="manufacturer-form-ctrl">
 		<!-- Page -->
 		<div class="page">
-			<div class="page-header"  style="width: 900px; margin-left: 100px;">
+			<div class="page-header" >
 				<h1 class="page-title">Thêm Thương Hiệu</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="../index.html">Trang
@@ -36,7 +36,7 @@
 				</ol>
 			</div>
 
-			<div class="page-content container-fluid "  style="width: 900px; margin-left: 100px;">
+			<div class="page-content container-fluid " >
 				<!-- Panel Full Example -->
 				<div class="panel">
 					<div class="panel-body">
@@ -60,7 +60,7 @@
 													aria-hidden="true"></i>
 												</span> <input data-maxlength="30" data-minlength="3" type="text"
 													id="nameManufacturer" class="form-control"
-													placeholder="Apple" ng-model="form.name">
+													placeholder="Nhập tên thương hiệu" ng-model="form.name">
 												<div class="invalid-tooltip" id="showErrorNameManufacturer"></div>
 											</div>
 
@@ -71,7 +71,7 @@
 
 								<div class="col-xl-6 form-horizontal">
 									<div class="form-group row">
-										<label class="col-xl-12 col-md-3 form-control-label">Logo
+										<label class="col-xl-12 col-md-3 form-control-label">Hình
 											<span class="required">*</span>
 										</label>
 										<div class="col-xl-12 col-md-9">
@@ -83,7 +83,7 @@
 														type="file" id="chooseLogo" accept=".png,.jpg,.jpeg">
 												</span>
 												</span> <input type="text" class="form-control"
-													placeholder="Choose a picture" readonly="readonly"
+													placeholder="Chọn hình" readonly="readonly"
 													id="valueLogo" ng-model="form.logo">
 												<div class="invalid-tooltip" id="showErrorLogo"></div>
 											</div>
@@ -94,7 +94,7 @@
 
 								<div class="col-xl-6 form-horizontal">
 									<div class="form-group row">
-										<label class="col-xl-12 col-md-3 form-control-label">Banner
+										<label class="col-xl-12 col-md-3 form-control-label">Ảnh Nền
 											<span class="required">*</span>
 										</label>
 										<div class="col-xl-12 col-md-9">
@@ -106,7 +106,7 @@
 														type="file" id="chooseBanner" accept=".png,.jpg,.jpeg">
 												</span>
 												</span> <input type="text" class="form-control"
-													placeholder="Choose a picture" readonly="readonly"
+													placeholder="Chọn hình" readonly="readonly"
 													id="valueBanner" ng-model="form.banner">
 												<div class="invalid-tooltip" id="showErrorBanner"></div>
 											</div>
@@ -127,7 +127,7 @@
 												</span>
 												<textarea data-maxlength="500" data-minlength="7" rows="3"
 													cols="5" class="form-control" id="describe"
-													placeholder="Describe something..."
+													placeholder=" Nhập mô tả"
 													ng-model="form.describe"></textarea>
 												<div class="invalid-tooltip" id="showErrorDescribe"></div>
 											</div>

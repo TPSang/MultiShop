@@ -26,7 +26,7 @@
 	<main ng-app="employee-form-app" ng-controller="employee-form-ctrl">
 		<!-- Page -->
 		<div class="page">
-			<div class="page-header" style="width: 900px; margin-left: 100px;">
+			<div class="page-header" >
 				<h1 class="page-title">Thêm Nhân Viên</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="/admin/index">Trang
@@ -37,7 +37,7 @@
 				</ol>
 			</div>
 
-			<div class="page-content container-fluid" style="width: 900px; margin-left: 100px;">
+			<div class="page-content" >
 				<!-- Panel Full Example -->
 				<div class="panel">
 					<div class="panel-body">
@@ -49,7 +49,7 @@
 						<form th:action="@{/admin/employees/form}" method="post"
 							id="exampleFullForm" name="formEmployee">
 							<div class="row row-lg">
-								<div class="col-xl-6 form-horizontal">
+								<div class="col-lg-6 form-horizontal">
 									<div class="form-group row">
 										<label class="col-xl-12 col-md-3 form-control-label">Họ
 											và tên <span class="required">*</span>
@@ -60,7 +60,7 @@
 													class="fa fa-user" aria-hidden="true"></i>
 												</span> <input id="fullName" ng-model="form.fullname"
 													data-maxlength="30" data-minlength="7" type="text"
-													class="form-control" placeholder="John Witch">
+													class="form-control" placeholder="Thêm họ tên">
 												<div class="invalid-tooltip" id="showErrorFullName"></div>
 											</div>
 
@@ -78,7 +78,7 @@
 												</span> <input id="department" ng-model="form.department"
 													data-maxlength="
 													50" data-minlength="7"
-													type="text" class="form-control" placeholder="Software 4.2">
+													type="text" class="form-control" placeholder="Phòng ban">
 												<div class="invalid-tooltip" id="showErrorDepartment"></div>
 											</div>
 
@@ -94,7 +94,7 @@
 												<span class="input-group-addon"> <i
 													class="fa fa-phone-square" aria-hidden="true"></i>
 												</span> <input type="text" class="form-control"
-													ng-model="form.phone" placeholder="0923456789" id="phone"
+													ng-model="form.phone" placeholder="Nhập số điện thoại" id="phone"
 													data-maxlength="10">
 												<div class="invalid-tooltip" id="showErrorPhone"></div>
 											</div>
@@ -142,7 +142,7 @@
 												<span class="input-group-addon"> <i
 													class="icon wb-users" aria-hidden="true"></i>
 												</span> <input type="text" class="form-control" id="position"
-													ng-model="form.position" placeholder="Fresher"
+													ng-model="form.position" placeholder="Chức vụ"
 													data-maxlength="30" data-minlength="7">
 												<div class="invalid-tooltip" id="showErrorPosition"></div>
 											</div>
@@ -158,7 +158,7 @@
 												<span class="input-group-addon"> <i
 													class="fa fa-money" aria-hidden="true"></i>
 												</span> <input type="number" class="form-control" name="salary"
-													ng-model="form.salary" placeholder="0" id="salary">
+													ng-model="form.salary" placeholder="Nhập số lương" id="salary">
 												<div class="invalid-tooltip" id="showErrorSalary"></div>
 											</div>
 										</div>
@@ -173,7 +173,7 @@
 												<span class="input-group-addon"> <i
 													class="fa fa-university" aria-hidden="true"></i>
 												</span> <select class="form-control" id="role" ng-model="form.role">
-													<option value="">Choose a role</option>
+													<option value="">Chọn Quyền</option>
 													<option value="2">Nhân viên</option>
 													<option value="3">Trưởng phòng</option>
 												</select>

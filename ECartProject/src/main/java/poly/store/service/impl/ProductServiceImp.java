@@ -28,6 +28,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
+import poly.store.baseResponse.BaseResponese;
 import poly.store.dao.CategoryDao;
 import poly.store.dao.ManufacturerDao;
 import poly.store.dao.ProductDao;
@@ -51,7 +52,7 @@ import poly.store.service.ProductService;
 @Service
 public class ProductServiceImp implements ProductService {
 	@Autowired
-	ProductDao productDao;
+	ProductDao productRepository;
 
 	@Autowired
 	UserDao userDao;
@@ -61,12 +62,41 @@ public class ProductServiceImp implements ProductService {
 
 	@Autowired
 	CategoryDao categoryDao;
-	
+
 	@Autowired
 	CommentService commentService;
 
 	@PersistenceContext
 	private EntityManager em;
+
+	@Override
+	public BaseResponese getAll() {
+		return new BaseResponese("1", "Get Data Success", productRepository.findAll());
+	}
+
+	@Override
+	public BaseResponese create(Product product) {
+		productRepository.save(product);
+		return new BaseResponese("1", "Create Success");
+	}
+
+	@Override
+	public BaseResponese update(Product product) {
+		if (productRepository.getById(product.getId()) != null) {
+			productRepository.save(product);
+			return new BaseResponese("1", "Update Success");
+		}
+		return new BaseResponese("-1", "Update Failed");
+	}
+
+	@Override
+	public BaseResponese delete(Integer id) {
+		if (productRepository.getById(id) != null) {
+			productRepository.deleteById(id);
+			return new BaseResponese("1", "Delete Success");
+		}
+		return new BaseResponese("-1", "Delete Failed");
+	}
 
 	@Override
 	public ProductModel createProduct(ProductModel productModel) {
@@ -87,8 +117,6 @@ public class ProductServiceImp implements ProductService {
 		product.setImage1(productModel.getImage1());
 		product.setImage2(productModel.getImage2());
 		product.setImage3(productModel.getImage3());
-		product.setImage4(productModel.getImage4());
-		product.setImage5(productModel.getImage5());
 		product.setActive(productModel.isActive());
 		product.setNamesearch(productModel.getNameSearch());
 		product.setColor(productModel.getColor());
@@ -102,27 +130,9 @@ public class ProductServiceImp implements ProductService {
 		product.setCategory(category);
 		product.setManufacturer(manufacturer);
 
-		productDao.save(product);
+		productRepository.save(product);
 
 		return productModel;
-	}
-
-	@Override
-	public List<Product> findAll() {
-		return productDao.getListProduct();
-	}
-
-	@Override
-	public void delete(Integer id) {
-		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-		String username = ((UserDetails) principal).getUsername();
-		User temp = userDao.findUserByEmail(username);
-		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-
-		Product product = productDao.findById(id).get();
-		product.setDeleteday(timestamp.toString());
-		product.setPersondelete(temp.getId());
-		productDao.save(product);
 	}
 
 	@Override
@@ -133,7 +143,7 @@ public class ProductServiceImp implements ProductService {
 		Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 		User temp = userDao.findUserByEmail(username);
 
-		Product product = productDao.findById(productModel.getId()).get();
+		Product product = productRepository.findById(productModel.getId()).get();
 
 		product.setCode(productModel.getCode());
 		product.setName(productModel.getName());
@@ -145,8 +155,6 @@ public class ProductServiceImp implements ProductService {
 		product.setImage1(productModel.getImage1());
 		product.setImage2(productModel.getImage2());
 		product.setImage3(productModel.getImage3());
-		product.setImage4(productModel.getImage4());
-		product.setImage5(productModel.getImage5());
 		product.setActive(productModel.isActive());
 		product.setNamesearch(productModel.getNameSearch());
 		product.setColor(productModel.getColor());
@@ -160,13 +168,13 @@ public class ProductServiceImp implements ProductService {
 		product.setCategory(category);
 		product.setManufacturer(manufacturer);
 
-		productDao.save(product);
+		productRepository.save(product);
 		return productModel;
 	}
 
 	@Override
 	public ProductModel getOneProductById(Integer id) {
-		Product product = productDao.findById(id).get();
+		Product product = productRepository.findById(id).get();
 		ProductModel productModel = new ProductModel();
 		productModel.setId(product.getId());
 		productModel.setCode(product.getCode());
@@ -177,8 +185,6 @@ public class ProductServiceImp implements ProductService {
 		productModel.setImage1(product.getImage1());
 		productModel.setImage2(product.getImage2());
 		productModel.setImage3(product.getImage3());
-		productModel.setImage4(product.getImage4());
-		productModel.setImage5(product.getImage5());
 		productModel.setNameSearch(product.getNamesearch());
 		productModel.setColor(product.getColor());
 		productModel.setMemory(product.getMemory());
@@ -192,29 +198,29 @@ public class ProductServiceImp implements ProductService {
 
 	@Override
 	public List<Product> getListLatestProduct() {
-		return productDao.getListLatestProduct();
+		return productRepository.getListLatestProduct();
 	}
 
 	@Override
 	public List<Product> getListViewsProduct() {
-		return productDao.getListViewsProduct();
+		return productRepository.getListViewsProduct();
 	}
 
 	@Override
 	public Page<Product> getListProductByNameSearch(String nameSearch, Pageable pageable) {
-		return productDao.getListProductByNameSearch(nameSearch, pageable);
+		return productRepository.getListProductByNameSearch(nameSearch, pageable);
 	}
 
 	@Override
 	public List<Product> getDemo(String nameSearch) {
 		// TODO Auto-generated method stub
-		return productDao.getListDemo(nameSearch);
+		return productRepository.getListDemo(nameSearch);
 	}
 
 	@Override
 	public Page<Product> getListProductByPrice(String nameSearch, int minPrice, int maxPrice, Pageable pageable) {
 		// TODO Auto-generated method stub
-		return productDao.getListProductByPrice(nameSearch, minPrice, maxPrice, pageable);
+		return productRepository.getListProductByPrice(nameSearch, minPrice, maxPrice, pageable);
 	}
 
 	@Override
@@ -312,25 +318,25 @@ public class ProductServiceImp implements ProductService {
 
 	@Override
 	public Product getProductByNameSearch(String nameSearch) {
-		return productDao.getProductByNameSearch(nameSearch);
+		return productRepository.getProductByNameSearch(nameSearch);
 	}
 
 	@Override
 	public List<Product> getListProductRelated(int id) {
-		return productDao.getListProductRelated(id);
+		return productRepository.getListProductRelated(id);
 	}
 
 	@Override
 	public void updateView(String nameSearch) {
-		Product product = productDao.getProductByNameSearch(nameSearch);
+		Product product = productRepository.getProductByNameSearch(nameSearch);
 		int view = product.getViews();
 		product.setViews(view + 1);
-		productDao.save(product);
+		productRepository.save(product);
 	}
 
 	@Override
 	public void updateQuality(Product product) {
-		productDao.save(product);
+		productRepository.save(product);
 	}
 
 }

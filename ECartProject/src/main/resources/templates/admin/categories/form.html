@@ -26,7 +26,7 @@
 	<main ng-app="category-form-app" ng-controller="category-form-ctrl">
 		<!-- Page -->
 		<div class="page">
-			<div class="page-header"  style="width: 900px; margin-left: 100px;">
+			<div class="page-header">
 				<h1 class="page-title">Thông Tin Danh Mục</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a href="../index.html">Trang
@@ -37,37 +37,21 @@
 				</ol>
 			</div>
 
-			<div class="page-content container-fluid"  style="width: 900px; margin-left: 100px;">
-				
+			<div class="page-content container-fluid">
+
 				<!-- Panel Full Example -->
 				<div class="panel">
-					
+
 					<div class="panel-body">
-						<button id="btnSave" type="button"  class="btn btn-primary" >
-							<a class="" aria-hidden="true " href="/admin/categories/list" style="color: aliceblue;text-decoration: none">Danh Sách Danh Mục</a>
+						<button id="btnSave" type="button" class="btn btn-primary">
+							<a class="" aria-hidden="true " href="/admin/categories/list"
+								style="color: aliceblue; text-decoration: none">Danh Sách
+								Danh Mục</a>
 						</button>
 						<form th:action="@{/admin/categories/form}" method="post"
 							id="exampleFullForm" name="formCategory">
 							<div class="row row-lg">
 
-								<!-- <div class="col-xl-12 form-horizontal">
-									<div class="form-group row">
-										<label class="col-xl-12 col-md-3 form-control-label">Tên
-											danh mục <span class="required">*</span>
-										</label>
-										<div class="col-xl-12 col-md-9">
-											<div class="input-group">
-												<span class="input-group-addon"> <i class="fa fa-tag"
-													aria-hidden="true"></i>
-												</span> <input data-maxlength="30" data-minlength="5" type="text"
-													id="nameCategory" class="form-control"
-													placeholder="Electronics" ng-model="form.name">
-												<div class="invalid-tooltip" id="showErrorNameCategory"></div>
-											</div>
-
-										</div>
-									</div>
-								</div> -->
 
 
 								<div class="col-xl-6 form-horizontal">
@@ -81,15 +65,15 @@
 													aria-hidden="true"></i>
 												</span> <input data-maxlength="30" data-minlength="5" type="text"
 													id="nameCategory" class="form-control"
-													placeholder="Electronics" ng-model="form.name">
+													placeholder="Nhập tên danh mục" ng-model="form.name">
 												<div class="invalid-tooltip" id="showErrorNameCategory"></div>
 											</div>
 
 										</div>
 									</div>
-								
+
 									<div class="form-group row">
-										<label class="col-xl-12 col-md-3 form-control-label">Logo
+										<label class="col-xl-12 col-md-3 form-control-label">Hình
 											<span class="required">*</span>
 										</label>
 										<div class="col-xl-12 col-md-9">
@@ -101,8 +85,8 @@
 														type="file" id="chooseLogo" accept=".png,.jpg,.jpeg">
 												</span>
 												</span> <input type="text" class="form-control"
-													placeholder="Choose a picture" readonly="readonly"
-													id="valueLogo" ng-model="form.logo">
+													placeholder="Chọn hình" readonly="readonly" id="valueLogo"
+													ng-model="form.logo">
 												<div class="invalid-tooltip" id="showErrorLogo"></div>
 											</div>
 
@@ -121,14 +105,33 @@
 													aria-hidden="true"></i>
 												</span> <input data-maxlength="30" data-minlength="5" type="text"
 													id="nameSearch" class="form-control"
-													placeholder="may-tinh" ng-model="form.nameSearch">
+													placeholder="Nhập tên tìm kiếm" ng-model="form.nameSearch">
 												<div class="invalid-tooltip" id="showErrorNameSearch"></div>
 											</div>
 
 										</div>
 									</div>
-								
-									
+									<div class="form-group row">
+										<label class="col-xl-12 col-md-3 form-control-label"> Ảnh Nền
+											<span class="required">*</span>
+										</label>
+										<div class="col-xl-12 col-md-9">
+											<div class="input-group input-group-file"
+												data-plugin="inputGroupFile">
+												<span class="input-group-btn "> <span
+													class="btn btn-outline btn-file input-group-addon">
+														<i class="icon wb-upload" aria-hidden="true"></i> <input
+														type="file" id="chooseBanner" accept=".png,.jpg,.jpeg">
+												</span>
+												</span> <input type="text" class="form-control"
+													placeholder="Chọn hình" readonly="readonly" id="valueBanner"
+													ng-model="form.banner">
+												<div class="invalid-tooltip" id="showErrorBanner"></div>
+											</div>
+
+										</div>
+									</div>
+
 								</div>
 
 
@@ -144,8 +147,7 @@
 												</span>
 												<textarea data-maxlength="500" data-minlength="7" rows="3"
 													cols="5" class="form-control" id="describe"
-													placeholder="Describe something..."
-													ng-model="form.describe"></textarea>
+													placeholder="Nhập mô tả" ng-model="form.describe"></textarea>
 												<div class="invalid-tooltip" id="showErrorDescribe"></div>
 											</div>
 

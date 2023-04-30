@@ -2,24 +2,26 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 
 <style>
 </style>
 
-<body>
+<body ng-app="information-app" ng-controller="information-ctrl">
 	<div class="top-header">
-		<nav id="top" ></nav>
+		<nav id="top"></nav>
 		<header>
 			<div class="container">
 				<div class="row">
 					<div class="header-top">
 						<div class="customer-support col-md-4 hidden-ls">
 							<!-- start logo -->
-							<a href="/index"><img th:src="@{|/assets/user/image/catalog/${information.logo}|}" style="width: 75px ; margin-left: 63px;  "
-									title="Your Store" alt="Your Store" class="img-responsive" /></a>
+							<a href="/index"><img
+								th:src="@{|/assets/user/image/catalog/${information.logo}|}"
+								style="width: 75px; margin-left: 63px;" title="Your Store"
+								alt="Your Store" class="img-responsive" /></a>
 						</div>
 
 
@@ -27,20 +29,19 @@
 
 						<div class="header-links col-md-8">
 							<!-- start account -->
-							<div id="header_ac" class="dropdown" >
-								<a href="#" title="My Account" class="dropdown-toggle" data-toggle="dropdown" > <i
-										class="fa fa-user"></i> <span class="account-main hidden-sm hidden-xs">
-										<span>Tài
-											Khoản</span>
-										<th:block th:unless="${#request.remoteUser}">
-											<span>Đăng ký</span>
+							<div id="header_ac" class="dropdown">
+								<a href="#" title="My Account" class="dropdown-toggle"
+									data-toggle="dropdown"> <i class="fa fa-user"></i> <span
+									class="account-main hidden-sm hidden-xs"> <th:block
+											th:unless="${#request.remoteUser}">
+											<span>Đăng Nhập</span>
+										</th:block> <th:block th:if="${#request.remoteUser} ">
+											<span>Chào {{form.fullName}}</span>
 										</th:block>
-										<th:block th:if="${#request.remoteUser}">
-											<span>Xin chào</span>
-										</th:block>
-									</span>
+								</span>
 								</a>
-								<ul class="dropdown-menu dropdown-menu-right account-link-toggle">
+								<ul
+									class="dropdown-menu dropdown-menu-right account-link-toggle">
 									<th:block th:if="${#request.remoteUser}">
 										<th:block
 											th:if="${#request.isUserInRole('ROLE_ADMIN') || #request.isUserInRole('ROLE_DIRECTOR')}">
@@ -62,9 +63,9 @@
 										<div class="language-box">
 											<form action="#" method="post" enctype="multipart/form-data"
 												id="form-language">
-												<button class="btn btn-link dropdown-toggle" data-toggle="dropdown">
-													<span class="drop-text">Ngôn ngữ:</span> <span
-														class="code">vi-en</span>
+												<button class="btn btn-link dropdown-toggle"
+													data-toggle="dropdown">
+													<span class="drop-text">Ngôn ngữ:</span> <span class="code">vi-en</span>
 												</button>
 												<ul class="language-dropdown lang">
 													<li>
@@ -82,8 +83,8 @@
 														</button>
 													</li>
 												</ul>
-												<input type="hidden" name="code" value="" /> <input type="hidden"
-													name="redirect" value="#" />
+												<input type="hidden" name="code" value="" /> <input
+													type="hidden" name="redirect" value="#" />
 											</form>
 										</div>
 									</li>
@@ -92,12 +93,12 @@
 							<!-- start cart -->
 							<div class="header_cart">
 								<div id="cart" class="btn-group btn-block">
-									<button type="button" data-toggle="dropdown" data-loading-text="Loading..."
+									<button type="button" data-toggle="dropdown"
+										data-loading-text="Loading..."
 										class="btn btn-inverse btn-block btn-lg dropdown-toggle">
 										<span id="cart-total"><span class="hidden-sm hidden-xs">Giỏ
-												Hàng</span> <span
-												class="cart-item">[[${session.sessionProduct.countAllProduct}]]<span
-													class="hidden-sm hidden-xs"> sp
+												Hàng</span> <span class="cart-item">[[${session.sessionProduct.countAllProduct}]]<span
+												class="hidden-sm hidden-xs"> sp
 													[[${#numbers.formatInteger(session.sessionProduct.amount,session.sessionProduct.amount==0?0:3,'POINT')}]]₫</span></span></span>
 									</button>
 									<ul class="dropdown-menu header-cart-toggle pull-right ">
@@ -108,20 +109,16 @@
 														<th:block th:each="item: ${session.sessionProduct.items}">
 															<tr>
 																<td class="text-center product-cart-thumb"><a
-																		href=""><img
-																			th:src="@{|/assets/images/imageProduct/${item.product.image1}|}"
-																			th:title="${item.product.name}"
-																			class="img-thumbnail">
-																	</a></td>
-																<td class="text-left product-cart-details"><a href=""
-																		class="product-item-name">[[${item.product.name}]]</a>
+																	href=""><img
+																		th:src="@{|/assets/images/imageProduct/${item.product.image1}|}"
+																		th:title="${item.product.name}" class="img-thumbnail">
+																</a></td>
+																<td class="text-left product-cart-details"><a
+																	href="" class="product-item-name">[[${item.product.name}]]</a>
 																	<div class="product-cart-info">
-																		<span
-																			class="product-cart-qty">[[${item.quality}]]
-																			x </span> <span
-																			class="product-cart-price">[[${#numbers.formatInteger(item.product.price,3,'POINT')}]]₫</span>
-																	</div>
-																</td>
+																		<span class="product-cart-qty">[[${item.quality}]]
+																			x </span> <span class="product-cart-price">[[${#numbers.formatInteger(item.product.price,3,'POINT')}]]₫</span>
+																	</div></td>
 
 															</tr>
 														</th:block>
@@ -142,15 +139,15 @@
 													</table>
 													<p class="text-right product-cart-button">
 														<a th:href="@{/shop/cart}"
-															class="btn cart-btn addtocart-btn">Giỏ
-															hàng</a>&nbsp;&nbsp;&nbsp;<a
+															class="btn cart-btn addtocart-btn">Giỏ hàng</a>&nbsp;&nbsp;&nbsp;<a
 															th:href="@{/shop/cart/checkout}"
 															class="btn cart-btn checkout-btn">Thanh toán</a>
 													</p>
 												</div>
 											</li>
 										</th:block>
-										<th:block th:unless="${session.sessionProduct.getCount() != 0}">
+										<th:block
+											th:unless="${session.sessionProduct.getCount() != 0}">
 											<li>
 												<p class="text-center product-cart-empty">Giỏ hàng của
 													bạn đang trống!</p>
@@ -177,20 +174,24 @@
 							<!-- start menu -->
 							<nav id="menu" class="navbar navbar_menu">
 								<div class="navbar-header">
-									<button type="button" class="btn btn-navbar navbar-toggle" id="btnMenuBar">
+									<button type="button" class="btn btn-navbar navbar-toggle"
+										id="btnMenuBar">
 										<span class="addcart-icon"></span>
 									</button>
 								</div>
-								<div id="topCategoryList" class="main-menu menu-navbar clearfix" data-more=More>
+								<div id="topCategoryList" class="main-menu menu-navbar clearfix"
+									data-more=More>
 									<div class="menu-close hidden-lg hidden-md">
 										<span id="category" class="">Menu</span><i class="icon-close"></i>
 									</div>
 									<ul class="nav navbar-nav">
-										<li class="menulist home"><a id="home" th:href="@{/index}">Trang chủ</a></li>
+										<li class="menulist home"><a id="home"
+											th:href="@{/index}">Trang chủ</a></li>
 
 										<li class="menulist"><a th:href="@{/contact}">Liên Hệ</a></li>
-										<li class="menulist"><a th:href="@{/thuonghieu}">Thương Hiệu</a></li>
-										<li class="blog"><a th:href="@{/blog2}">Blogs</a></li>
+										<li class="menulist"><a th:href="@{/thuonghieu}">Thương
+												Hiệu</a></li>
+										<!-- <li class="blog"><a th:href="@{/blog2}">Blogs</a></li> -->
 
 									</ul>
 								</div>
@@ -202,7 +203,8 @@
 							<div class="btn_search">
 								<div class="header-search">
 									<div id="mahardhiSearch" class="input-group mahardhi-search">
-										<input type="text" name="search" value="" placeholder="Tìm sản phẩm..."
+										<input type="text" name="search" value=""
+											placeholder="Tìm sản phẩm..."
 											class="form-control input-lg ui-autocomplete-input" /> <span
 											class="btn-search input-group-btn">
 											<button type="button" class="btn btn-default btn-lg">
@@ -219,5 +221,7 @@
 		</header>
 	</div>
 </body>
-
+<th:block id="material">
+	<script src="/assets/user/angular/information-app.js"></script>
+</th:block>
 </html>

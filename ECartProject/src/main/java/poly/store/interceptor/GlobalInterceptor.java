@@ -31,7 +31,7 @@ public class GlobalInterceptor implements HandlerInterceptor {
 	@Override
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
-		request.setAttribute("categories", categoryService.findAll());
+		request.setAttribute("categories", categoryService.getAll().getData());
 		request.setAttribute("information", informationService.getOneInformationShop());
 		sessionService.set("sessionProduct", cartService);
 	}

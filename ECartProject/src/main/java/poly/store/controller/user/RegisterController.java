@@ -11,6 +11,7 @@ package poly.store.controller.user;
 import java.sql.Timestamp;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -66,6 +67,9 @@ public class RegisterController {
 	// Thong tin user role service
 	@Autowired
 	UserRoleService userRoleService;
+
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	/**
 	 * Rang buoc form voi trinh bat loi
@@ -169,7 +173,7 @@ public class RegisterController {
 				User user = new User();
 				user.setEmail(userRegister.getEmail());
 				user.setFullname(userRegister.getFullName());
-				user.setPassword(userRegister.getPassword());
+				user.setPassword(passwordEncoder.encode(userRegister.getPassword()));
 				user.setCreateday(timestamp.toString());
 				user.setSubscribe(userRegister.getSubscribe());
 				userService.save(user);

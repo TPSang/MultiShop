@@ -8,10 +8,8 @@
  */
 package poly.store.service;
 
-import java.util.List;
-
+import poly.store.baseResponse.BaseResponese;
 import poly.store.entity.Employee;
-import poly.store.model.EmployeeModel;
 
 /**
  * Class cung cap cac dich vu thao tac voi table Employee trong database
@@ -21,7 +19,7 @@ import poly.store.model.EmployeeModel;
  */
 public interface EmployeeService {
 
-	List<EmployeeModel> getListEmployee();
+	BaseResponese getAll();
 
 	void save(Employee employee);
 	

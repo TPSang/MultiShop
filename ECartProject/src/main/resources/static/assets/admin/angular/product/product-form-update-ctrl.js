@@ -455,7 +455,7 @@ app.controller("product-form-ctrl", function ($scope, $http) {
       });
   };
 
-  // upload image 4
+  /* // upload image 4
   $scope.imageImage4Changed = function (files) {
     var data = new FormData();
     data.append("file", files[0]);
@@ -471,9 +471,9 @@ app.controller("product-form-ctrl", function ($scope, $http) {
         alert("loi load hinh");
         console.log(error);
       });
-  };
+  }; */
 
-  // upload image 5
+  /* // upload image 5
   $scope.imageImage5Changed = function (files) {
     var data = new FormData();
     data.append("file", files[0]);
@@ -489,5 +489,5 @@ app.controller("product-form-ctrl", function ($scope, $http) {
         alert("loi load hinh");
         console.log(error);
       });
-  };
+  }; */
 });

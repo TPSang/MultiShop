@@ -41,6 +41,11 @@ public class AccountController {
 		return Constants.USER_DISPLAY_ACCOUNT_INFORMATION;
 	}
 	
+	@GetMapping("/account/pass")
+	public String pass(Model model) {	
+		return Constants.USER_DISPLAY_ACCOUNT_PASS;
+	}
+	
 	@GetMapping("/account/favorite")
 	public String favorite(Model model) {				
 		

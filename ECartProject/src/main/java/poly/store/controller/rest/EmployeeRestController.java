@@ -34,10 +34,10 @@ public class EmployeeRestController {
 	@Autowired
 	UserRoleService userRoleService;
 	
-	@GetMapping()
-	public List<UserRole> getAll() {
-		return userRoleService.findAllAdminOrDirector();
-	}
+//	@GetMapping()
+//	public List<UserRole> getAll() {
+//		return userRoleService.findAllAdminOrDirector();
+//	}
 	
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable("id") Integer id) {

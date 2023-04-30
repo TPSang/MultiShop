@@ -13,6 +13,7 @@ import java.util.List;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import poly.store.baseResponse.BaseResponese;
 import poly.store.entity.Product;
 import poly.store.model.ProductModel;
 import poly.store.model.ShowProduct;
@@ -25,11 +26,15 @@ import poly.store.model.ShowProduct;
  */
 public interface ProductService {
 
+	BaseResponese getAll();
+
+	BaseResponese create(Product product);
+
+	BaseResponese update(Product product);
+
+	BaseResponese delete(Integer id);
+
 	ProductModel createProduct(ProductModel productModel);
-
-	List<Product> findAll();
-
-	void delete(Integer id);
 
 	ProductModel updateProduct(ProductModel productModel);
 
@@ -45,7 +50,8 @@ public interface ProductService {
 
 	Page<Product> getListProductByPrice(String nameSearch, int minPrice, int maxPrice, Pageable pageable);
 
-	Page<ShowProduct> getListProductByFilter(String nameSearch, String price, String manu, String sort, Pageable pageable);
+	Page<ShowProduct> getListProductByFilter(String nameSearch, String price, String manu, String sort,
+			Pageable pageable);
 
 	Product getProductByNameSearch(String nameSearch);
 

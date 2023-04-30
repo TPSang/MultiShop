@@ -71,11 +71,11 @@ public class Product implements Serializable{
 	// Thong tin hinh anh 3
 	private String image3;
 
-	// Thong tin hinh anh 4
-	private String image4;
-
-	// Thong tin hinh anh 5
-	private String image5;
+//	// Thong tin hinh anh 4
+//	private String image4;
+//
+//	// Thong tin hinh anh 5
+//	private String image5;
 
 	// Hien thi san pham hay khong
 	private boolean active;

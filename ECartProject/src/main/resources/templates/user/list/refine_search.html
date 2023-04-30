@@ -9,28 +9,28 @@
 							<a class="list-group-item">Giá</a>
 							<div class="list-group-item">
 								<div id="filter-group2">
-									<div class="checkbox">
-										<label> <input type="checkbox" name="gia" th:checked="${price=='1'}" value="1" />
+									<div class="radio">
+										<label> <input type="radio" name="gia" th:checked="${price=='1'}" value="1" />
 											Dưới 3 triệu
 										</label>
 									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="gia" th:checked="${price=='2'}" value="2" />
+									<div class="radio">
+										<label> <input type="radio" name="gia" th:checked="${price=='2'}" value="2" />
 											Từ 3 - 5 triệu
 										</label>
 									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="gia" th:checked="${price=='3'}" value="3" />
+									<div class="radio">
+										<label> <input type="radio" name="gia" th:checked="${price=='3'}" value="3" />
 											Từ 5 - 8 triệu
 										</label>
 									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="gia" th:checked="${price=='4'}" value="4" />
+									<div class="radio">
+										<label> <input type="radio" name="gia" th:checked="${price=='4'}" value="4" />
 											Từ 8 - 13 triệu
 										</label>
 									</div>
-									<div class="checkbox">
-										<label> <input type="checkbox" name="gia" th:checked="${price=='5'}"
+									<div class="radio">
+										<label> <input type="radio" name="gia" th:checked="${price=='5'}"
 											value="5" /> Trên 13 triệu
 										</label>
 									</div>
@@ -42,8 +42,8 @@
 							<div class="list-group-item">
 								<div id="filter-group3">
 									<th:block th:each="item: ${listManu}">
-										<div class="checkbox">
-											<label> <input type="checkbox" name="hang" th:checked="${manu== '' + item.id}" th:value="${item.id}" />
+										<div class="radio">
+											<label> <input type="radio" name="hang" th:checked="${manu== '' + item.id}" th:value="${item.id}" />
 												[[${item.name}]]
 											</label>
 										</div>

@@ -27,11 +27,17 @@
 											<div class="caption">
 												<h4 class="product-title">
 													<a th:href="@{|/san-pham/${item2.product.Namesearch}|}">[[${item2.product.name}]]</a>
-												</h4>
+												</h4> 
+												
+												
 												<!-- </th:block> -->
-												<p class="price">[[${#numbers.formatInteger(item2.product.price,3,'POINT')}]]₫</p>
+												<p class="price" style="margin-bottom: 32px;">[[${#numbers.formatInteger(item2.product.price,3,'POINT')}]]₫ </p>
+												
+												
 												<div class="rating">
+													
 													<th:block th:if="${item2.totalStar != 0}">
+														
 														<th:block
 															th:each="i: ${#numbers.sequence(1, item2.totalStar)}">
 															<span class="fa fa-stack"><i
@@ -49,10 +55,13 @@
 												</div>
 												<input type="hidden" id="productId"
 													th:value="${item2.product.id}" />
-
-												<button type="button" class="addcart" title="Add to Cart"
+												
+												<button type="button" class="addcart row" title="Add to Cart"
 													th:onclick="location.href = '/san-pham/[(${item2.product.Namesearch})]'">Mua
 													ngay</button>
+													<button type="button" style="margin-bottom: 30px;" class="addcart " title="Yêu thích"
+													th:onclick="location.href = '/san-pham/[(${item2.product.Namesearch})]'">Yêu thích
+													</button>
 											</div>
 										</div>
 									</div>

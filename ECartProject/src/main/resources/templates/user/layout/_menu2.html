@@ -15,24 +15,21 @@
 							<!-- start logo -->
 							<a href="/index"><img
 								th:src="@{|/assets/user/image/catalog/${information.logo}|}"
-								title="Your Store" alt="Your Store" class="img-responsive" style="width: 75px ; margin-left: 63px; "/></a>
+								title="Your Store" alt="Your Store" class="img-responsive"
+								style="width: 75px; margin-left: 63px;" /></a>
 						</div>
 
-						
-						
+
+
 
 						<div class="header-links col-md-8">
 							<!-- start account -->
 							<div id="header_ac" class="dropdown">
 								<a href="#" title="My Account" class="dropdown-toggle"
 									data-toggle="dropdown"> <i class="fa fa-user"></i> <span
-									class="account-main hidden-sm hidden-xs"> <span>Tài
-											Khoản</span> <th:block th:unless="${#request.remoteUser}">
-											<span>Đăng ký</span>
-										</th:block> <th:block th:if="${#request.remoteUser}">
-											<span>Xin chào!</span>
-										</th:block>
-								</span>
+									class="account-main hidden-sm hidden-xs"> <th:block
+											th:unless="${#request.remoteUser}">
+											<span>Đăng ký</span></span>
 								</a>
 								<ul
 									class="dropdown-menu dropdown-menu-right account-link-toggle">
@@ -82,13 +79,13 @@
 								</ul>
 							</div>
 							<!-- start cart -->
-							
+
 						</div>
 					</div>
 				</div>
 			</div>
-			
-			
+
+
 		</header>
 	</div>
 </body>

@@ -43,10 +43,10 @@ public class CategoryRestController {
 		return categoryService.createCategory(categoryModel);
 	}
 	
-	@GetMapping()
-	public List<Category> getAll(){
-		return categoryService.findAll();
-	}
+//	@GetMapping()
+//	public List<Category> getAll(){
+//		return categoryService.findAll();
+//	}
 	
 	@GetMapping("/form/{id}")
 	public CategoryModel getOneUserById(@PathVariable("id") Integer id) {

@@ -43,10 +43,10 @@ public class ProductRestController {
 		return productService.createProduct(productModel);
 	}
 	
-	@GetMapping()
-	public List<Product> getAll(){
-		return productService.findAll();
-	}
+//	@GetMapping()
+//	public List<Product> getAll(){
+//		return productService.findAll();
+//	}
 	
 	@DeleteMapping("{id}")
 	public void delete(@PathVariable("id") Integer id) {

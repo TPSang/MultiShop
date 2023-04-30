@@ -40,4 +40,8 @@ public interface UserDao extends JpaRepository<User, Integer> {
 	@Query("SELECT u FROM User u WHERE u.Deleteday = null")
 	List<User> findAllUserAnable();
 	
+	//tim danh sach nguoi dung
+	@Query("SELECT u FROM UserRole u WHERE (u.role.id = 1)")
+	List<?>findUser();
+	
 }

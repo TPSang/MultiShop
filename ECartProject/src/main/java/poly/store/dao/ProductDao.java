@@ -24,6 +24,10 @@ import poly.store.entity.Product;
  * @version 1.00
  */
 public interface ProductDao extends JpaRepository<Product, Integer>{
+	
+	@Query(value = "SELECT Cate_Id FROM Products", nativeQuery = true)
+	List<?> checkIdCategoryToDelete();
+	
 	@Query("SELECT p FROM Product p WHERE p.Deleteday = null")
 	List<Product> getListProduct();
 	

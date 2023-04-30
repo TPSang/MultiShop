@@ -23,15 +23,42 @@
 		src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
 	<script
 		src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap4.min.js"></script>
+
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.9/angular.min.js"></script>
+	<!-- Plugins For This Page -->
+	<link rel="stylesheet"
+		href="/assets/admin/global/vendor/formvalidation/formValidation.min599c.css?v4.0.2">
+
+	<link rel="stylesheet"
+		href="/assets/admin/base/assets/examples/css/forms/validation.min599c.css?v4.0.2">
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </th:block>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<main ng-app="product-app" ng-controller="product-ctrl">
+
+
+
+	<main ng-app="product-app" ng-controller="product-ctrl"
+		ng-init="getAll()">
+
+
+
+
+
 		<div class="page">
-			<div class="page-header"  style="width: 900px; margin-left: 100px;">
+			<div class="alert alert-{{color}} alert-dismissible  ">
+				<div class="text">
+					<button type="button" class="close" data-dismiss="alert">&times;</button>
+					<strong>{{message}} !</strong>
+				</div>
+			</div>
+			<div class="page-header">
 				<h1 class="page-title">Danh Sách Sản Phẩm</h1>
 				<ol class="breadcrumb">
 					<li class="breadcrumb-item"><a th:href="@{/admin/index}">Trang
@@ -42,7 +69,8 @@
 				</ol>
 			</div>
 
-			<div class="page-content"  style="width: 900px; margin-left: 100px;">
+
+			<div class="page-content">
 				<!-- Panel Basic -->
 				<div class="panel">
 					<div class="panel-body">
@@ -51,9 +79,11 @@
 							datatable="ng" dt-options="vm.dtOptions"
 							dt-instance="vm.dtInstance" dt-column-defs="vm.dtColumnDefs">
 
-							<button id="btnSave" type="button"  class="btn btn-primary " >
-								<a class="" aria-hidden="true " href="/admin/product/form" style="color: aliceblue; text-decoration: none">Thêm Sản Phẩm</a>
-								
+							<button id="btnSave" type="button" class="btn btn-primary ">
+								<a class="" aria-hidden="true " href="/admin/product/form"
+									style="color: aliceblue; text-decoration: none">Thêm Sản
+									Phẩm</a>
+
 							</button>
 							<br>
 							<br>
@@ -85,23 +115,23 @@
 								</tr>
 							</tfoot>
 							<tbody>
-								<tr ng-repeat="item in items">
+								<tr ng-repeat="item in data">
 									<td>{{item.code}}</td>
 									<td>{{item.name}}</td>
-									<td>{{item.price | currency : '' : 0}}</td>
+									<td>{{item.price | currency : '' : 0}} ₫</td>
 									<td>{{item.quality}}</td>
 									<td>{{item.views}}</td>
 									<td>{{item.category.name}}</td>
 									<td>{{item.manufacturer.name}}</td>
 									<td><span class="badge badge-danger"
 										ng-if="item.active == false">Vô hiệu hóa</span> <span
-										class="badge badge-info"
-										ng-if="item.active == true">Hiển thị</span>
-									</td>
+										class="badge badge-info" ng-if="item.active == true">Hiển
+											thị</span></td>
 									<td><a ng-click="update(item)"
 										class="btn btn-sm btn-icon btn-pure btn-default on-default edit-row"
 										title="Cập nhật"> <i class="icon wb-edit"></i>
-									</a> <a ng-click="showModal(item)"
+									</a> <a data-toggle="modal" data-target="#modal"
+										ng-click="getID(item)"
 										class="btn btn-sm btn-icon btn-pure btn-default on-default remove-row"><i
 											class="icon wb-trash" title="Xóa"></i></a></td>
 								</tr>
@@ -111,6 +141,7 @@
 				</div>
 				<!-- End Panel Basic -->
 			</div>
+
 		</div>
 		<!-- Modal -->
 		<div class="modal fade modal-warning" id="modal">
@@ -128,32 +159,32 @@
 					</div>
 					<div class="modal-footer">
 						<button type="button" class="btn btn-default" data-dismiss="modal">Đóng</button>
-						<button type="button" ng-click="delete()" id="checkClick"
-							class="btn btn-primary" data-dismiss="modal">Xác nhận</button>
+						<button data-toggle="modal" data-target="#modalInfo" type="button"
+							ng-click="delete()" id="checkClick" class="btn btn-primary"
+							data-dismiss="modal">Xác nhận</button>
 					</div>
 				</div>
 			</div>
 		</div>
 		<!-- End Modal -->
-
 		<!-- Modal -->
 		<div class="modal fade"
 			ng-class="{true:'modal-info', false:'modal-danger'}[info.status]"
 			id="modalInfo">
 			<div class="modal-dialog">
 				<div class="modal-content">
-					<div class="modal-header">
+					<div class="modal-header bg-info">
 						<button type="button" class="close" data-dismiss="modal"
 							aria-label="Close">
 							<span aria-hidden="true">×</span>
 						</button>
-						<h4 class="modal-title">{{info.alert}}</h4>
+						<h3 class="modal-title text-light">Thông Báo !</h3>
 					</div>
-					<div class="modal-body">
-						<p>{{info.content}}</p>
+					<div class="modal-body font-weight-bold">
+						<p>{{message_warning}}</p>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn"
+						<button type="button" class="btn btn-info"
 							ng-class="{true:'btn-info', false:'btn-danger'}[info.status]"
 							data-dismiss="modal">Xác nhận</button>
 					</div>
@@ -162,10 +193,31 @@
 		</div>
 		<!-- End Modal -->
 	</main>
+
+
+
 </body>
 <th:block id="javascriptResource">
 	<script
 		src="/assets/admin/base/assets/examples/js/tables/datatable.min599c.js?v4.0.2"></script>
 	<script src="/assets/admin/angular/product/product-list-ctrl.js"></script>
-</th:block>
+	<script
+		src="/assets/admin/global/vendor/formvalidation/framework/bootstrap4.min599c.js?v4.0.2"></script>
+
+	<script
+		src="/assets/admin/base/assets/examples/js/forms/validation.min599c.js?v4.0.2"></script>
+
+	<!-- Plugins For This Page -->
+	<script
+		src="/assets/admin/global/vendor/jquery-placeholder/jquery.placeholder599c.js?v4.0.2"></script>
+	<script
+		src="/assets/admin/global/js/Plugin/input-group-file.min599c.js?v4.0.2"></script>
+	<th:block th:if="${!enableBtnUpdate}">
+		<script
+			src="/assets/admin/angular/product/product-form-create-ctrl.js"></script>
+	</th:block>
+	<th:block th:if="${enableBtnUpdate}">
+		<script
+			src="/assets/admin/angular/product/product-form-update-ctrl.js"></script>
+	</th:block>
 </html>

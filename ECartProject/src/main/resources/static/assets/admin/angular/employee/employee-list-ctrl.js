@@ -1,80 +1,32 @@
-$(document).ready(function () {});
+var app = angular.module("employee-app", []);
+app.controller("employee-ctrl", function($scope, $http) {
+	var BACKEND_ADDRESS = "http://localhost:8080";
+	var GET_ALL = "/admin/employee/getAll";
 
-angular.module("employee-app", ["employee-app.controllers", "datatables"]);
-angular
-  .module("employee-app.controllers", [])
-  .controller(
-    "employee-ctrl",
-    function (
-      $scope,
-      DTOptionsBuilder,
-      DTColumnBuilder,
-      DTColumnDefBuilder,
-      $http
-    ) {
-      $scope.items = [];
-      $scope.form = {};
-      $scope.info = {};
-      $scope.initialize = function () {
-        $http.get("/rest/employees").then((resp) => {
-          $scope.items = resp.data;
-        });
-      };
-      $scope.initialize();
+	$scope.data = {};
+	$scope.color = '';
+	$scope.message = '';
 
-      $scope.showModal = function (item) {
-        $scope.form = item;
-        $("#modal").modal("show");
-      };
+	$scope.getAll = function() {
+		$http.get(BACKEND_ADDRESS + GET_ALL).then(function(res) {
+			$scope.color = 'success';
+			$scope.message = res.data.message;
+			$scope.data = res.data.data;
+		}, function(error) {
+			$scope.message = error.data.message;
+			$scope.color = 'danger';
+		});
+	};
 
-      $scope.delete = function () {
-        $http
-          .delete(`/rest/employees/` + $scope.form.user.id)
-          .then((resp) => {
-            var index = $scope.items.findIndex(
-              (p) => p.user.id == $scope.form.user.id
-            );
-            $scope.items.splice(index, 1);
+	$scope.update = function(item) {
+		if (item.user.email == $("#username").val()) {
+			$scope.color = 'danger';
+			$scope.message = "Bạn không được phép cập nhật tài khoản đang đăng nhập!";
+			$("#modalInfo").modal("show");
+		} else {
+			var path = "/admin/employees/update/" + item.user.id;
+			$("a").attr("href", path);
+		}
+	};
 
-            $scope.info.status = true;
-            $scope.info.alert = "Thành Công!";
-            $scope.info.content = "Bạn đã xóa tài khoản thành công!";
-            $("#modalInfo").modal("show");
-
-            //alert("Xoá sản phẩm thành công!");
-          })
-          .catch((error) => {
-            $scope.info.status = false;
-            $scope.info.alert = "Cảnh Báo!";
-            $scope.info.content =
-              "Bạn không được phép xóa tài khoản đang đăng nhập!";
-            $("#modalInfo").modal("show");
-            //alert("Lỗi xoá sản phẩm")
-            console.log(error);
-          });
-      };
-
-      $scope.update = function (item) {
-        if (item.user.email == $("#username").val()) {
-          $scope.info.status = false;
-          $scope.info.alert = "Cảnh Báo!";
-          $scope.info.content =
-            "Bạn không được phép cập nhật tài khoản đang đăng nhập!";
-          $("#modalInfo").modal("show");
-        } else {
-          var path = "/admin/employees/update/" + item.user.id;
-          $("a").attr("href", path);
-        }
-      };
-
-      $scope.vm = {};
-      $scope.vm.dtInstance = {};
-      $scope.vm.dtColumnDefs = [
-        DTColumnDefBuilder.newColumnDef(8).notSortable(),
-      ];
-      $scope.vm.dtOptions = DTOptionsBuilder.newOptions()
-        .withOption("paging", true)
-        .withOption("searching", true)
-        .withOption("info", true);
-    }
-  );
+});

@@ -10,6 +10,7 @@ package poly.store.service;
 
 import java.util.List;
 
+import poly.store.baseResponse.BaseResponese;
 import poly.store.entity.User;
 import poly.store.model.ChangePassModel;
 import poly.store.model.InformationModel;
@@ -21,7 +22,7 @@ import poly.store.model.InformationModel;
  * @version 1.00
  */
 public interface UserService {
-	
+
 	/**
 	 * Tim kiem User bang email
 	 * 
@@ -32,11 +33,13 @@ public interface UserService {
 
 	void save(User user);
 
-	List<User> findAll();
+	BaseResponese getAll();
 
 	User create(User user);
 
 	List<User> findAllUserAnable();
+
+	List<?> findUser();
 
 	InformationModel getUserAccount();
 

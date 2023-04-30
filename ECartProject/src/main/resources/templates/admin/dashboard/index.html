@@ -31,18 +31,47 @@
 	<link rel="stylesheet"
 		href="/assets/admin/base/assets/examples/css/dashboard/ecommerce.min599c.css?v4.0.2">
 
+		
 </th:block>
 </head>
+<style>
+.alert {
+
+
+  
+  
+  -webkit-animation:  5s ;
+  animation: notify 5s ;
+  }
+  @keyframes notify {
+	0% {transform: scaleX(0);}
+	10% {transform: scaleX(1);}
+	13% {transform: scale(1.1);}
+	16% {transform: scale(1);}
+	55% {transform: scaleX(1);}
+  
+  }
+  </style>
 <body>
 	<main ng-app="statistical-revenue-app"
 	ng-controller="statistical-revenue-ctrl">
+	
+
+ 
 		<div class="page">
-			<div class="page-header"  style="width: 1000px; margin-left: 100px;">
-				<h1 class="page-title font-size-26 font-weight-100">Ecommerce
-					Overview</h1>
+
+			<div class="alert alert-success alert-dismissible  "   >
+				<div class="text">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>Success!</strong> Indicates a successful or positive action.
+			  </div></div>
+			
+
+			<div class="page-header"  >
+				<h1 class="page-title font-size-26 font-weight-100">Tổng Quan</h1>
 			</div>
 
-			<div class="page-content container-fluid"  style="width: 1100px; ">
+			<div class="page-content container"  >
 				<div class="row">
 					<!-- First Row -->
 					<div class="col-xl-3 col-md-6 info-panel">
@@ -52,7 +81,7 @@
 									class="btn btn-floating btn-sm btn-warning">
 									<i class="icon wb-shopping-cart"></i>
 								</button>
-								<span class="ml-15 font-weight-400">ORDERS</span>
+								<span class="ml-15 font-weight-400">Đơn Hàng</span>
 								<div class="content-text text-center mb-0">
 									<i class="text-danger icon wb-triangle-up font-size-20"> </i> <span
 										class="font-size-40 font-weight-100">399</span>
@@ -68,7 +97,7 @@
 								<button type="button" class="btn btn-floating btn-sm btn-danger">
 									<i class="icon fa-dollar"></i>
 								</button>
-								<span class="ml-15 font-weight-400">INCOM</span>
+								<span class="ml-15 font-weight-400">Số Tiền</span>
 								<div class="content-text text-center mb-0">
 									<i class="text-success icon wb-triangle-down font-size-20">
 									</i> <span class="font-size-40 font-weight-100">$18,628</span>
@@ -85,7 +114,7 @@
 									class="btn btn-floating btn-sm btn-success">
 									<i class="icon wb-eye"></i>
 								</button>
-								<span class="ml-15 font-weight-400">VISITORS</span>
+								<span class="ml-15 font-weight-400">Lượt Xem</span>
 								<div class="content-text text-center mb-0">
 									<i class="text-danger icon wb-triangle-up font-size-20"> </i> <span
 										class="font-size-40 font-weight-100">23,456</span>
@@ -102,7 +131,7 @@
 									class="btn btn-floating btn-sm btn-primary">
 									<i class="icon wb-user"></i>
 								</button>
-								<span class="ml-15 font-weight-400">CUSTOMERS</span>
+								<span class="ml-15 font-weight-400">Khách Hàng</span>
 								<div class="content-text text-center mb-0">
 									<i class="text-danger icon wb-triangle-up font-size-20"> </i> <span
 										class="font-size-40 font-weight-100">4,367</span>
@@ -115,7 +144,7 @@
 					<!-- End First Row -->
 
 					<!-- second Row -->
-					<div class="col-12" id="ecommerceChartView">
+					<!-- <div class="col-12 " id="ecommerceChartView">
 						<div class="card card-shadow">
 							<div class="card-header card-header-transparent py-20">
 								<div class="btn-group dropdown">
@@ -141,7 +170,8 @@
 								<canvas id="bar-chart-grouped-year" width="800" height="450"></canvas>
 							</div>
 						</div>
-					</div>
+						
+					</div> -->
 					<!-- End Second Row -->
 
 					<!-- Third Row -->
@@ -150,25 +180,22 @@
 						<div class="card card-shadow table-row">
 							<div class="card-header card-header-transparent py-20">
 								<div class="btn-group dropdown">
-									<a href="#" class="text-body dropdown-toggle blue-grey-700"
-										data-toggle="dropdown">RECENT ORDER</a>
-									<div class="dropdown-menu animate" role="menu">
-										<a class="dropdown-item" href="#" role="menuitem">Sales</a> <a
-											class="dropdown-item" href="#" role="menuitem">Total
-											sales</a> <a class="dropdown-item" href="#" role="menuitem">profit</a>
-									</div>
+									<a href="#" class="text-body  blue-grey-700"
+										data-toggle="dropdown">Gần Đây</a>
+									
 								</div>
 							</div>
 							<div class="card-block bg-white table-responsive">
 								<table class="table">
 									<thead>
 										<tr>
-											<th>Image</th>
-											<th>Product</th>
-											<th>Customer</th>
-											<th>Purchased On</th>
-											<th>Status</th>
-											<th>Tracking No#</th>
+											<th>Mã Sản Phẩm</th>
+											<th>Ảnh</th>
+											<th>Tên Sản Phẩm</th>
+											<th>Khách Hàng</th>
+											<th>Ngày Mua</th>
+											<th>Trạng Thái</th>
+											
 										</tr>
 									</thead>
 									<tbody>
@@ -229,7 +256,7 @@
 					<div class="col-lg-4" id="ecommerceRevenue">
 						<div class="card card-shadow text-center pt-10">
 							<h3
-								class="card-header card-header-transparent blue-grey-700 font-size-14 mt-0">REVENUE</h3>
+								class="card-header card-header-transparent blue-grey-700 font-size-14 mt-0">Doanh Thu</h3>
 							<div class="card-block bg-white">
 								<div class="ct-chart barChart"></div>
 								<div class="pie-view row">

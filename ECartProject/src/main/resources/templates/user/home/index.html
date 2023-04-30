@@ -12,26 +12,38 @@
 </head>
 
 <style>
+.swiper-slide>a>img:hover{
+	background-color: aqua;
 
+}
 </style>
 
 <body>
-	<th:block id="breadcums"></th:block>
+	<th:block id="breadcums">
+		
+	</th:block>
 	<th:block id="aside">
+		
+	
+		<div th:replace="/user/home/special_product.html"></div>
 		<div class="swiper-viewport">
 			<div id="banner0" class="swiper-container">
 				<div class="swiper-wrapper">
-					<div class="swiper-slide">
-						<a href="/san-pham/samsung-galaxy-a12"><img src="https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/s/2/s23-ultra-tim.png" style="height: 250px; width: 300px;"
+					<div class="swiper-slide " >
+						<a href="/san-pham/samsung-galaxy-a12" ><img src="https://cdn2.cellphones.com.vn/358x358,webp,q100/media/catalog/product/s/2/s23-ultra-tim.png" style="height: 250px; width: 300px;   border: 2px solid #e5e5e5 ;  "
 								alt="Left Banner" class=" img-fluid" /></a>
+	<br>
+<br>
+
+								<a href="/san-pham/samsung-galaxy-a12"><img src="https://www.didongmy.com/vnt_upload/product/14-CU-THUMB/14-new/thumbs/600_crop_iphone-14-red-1.jpg" style="height: 250px; width: 300px; border: 2px solid #e5e5e5;"
+									alt="Right Banner" class=" img-fluid" /></a>
 					</div>
 				</div>
 			</div>
 
 		</div>
-		<div th:replace="/user/home/special_product.html"></div>
 		<div th:replace="/user/home/our_service.html"></div>
-
+	
 	</th:block>
 
 
@@ -40,7 +52,7 @@
 			<div th:replace="/user/home/slideshow.html"></div>
 
 			<div th:replace="/user/home/latest_product.html"></div>
-			<div class="banner-outer container-outer html1">
+			<!-- <div class="banner-outer container-outer html1">
 				<div class="html1-inner">
 					<div class="row">
 						<div class="col-xs-6">
@@ -75,29 +87,30 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
-			<div th:replace="/user/home/blog.html"></div>
+			
 
 			<div th:replace="/user/home/featured_products.html"></div>
 			<div th:replace="/user/home/manufacturer.html"></div>
 		</div>
 		<aside id="column-right" class="col-sm-3 hidden-xs">
 			<div th:replace="/user/home/bestseller.html"></div>
-			<div class="swiper-viewport">
+			<div th:replace="/user/home/deal_of_the_day.html"></div>
+			<!-- <div class="swiper-viewport">
 				<div id="banner1" class="swiper-container">
 					<div class="swiper-wrapper">
 						<div class="swiper-slide">
-							<a href="#"><img src="/assets/user/image/cache/catalog/banners/cat-rightbanner-290x450.jpg"
-									alt="Right Banner" class="img-responsive" /></a>
+							<a href="/san-pham/samsung-galaxy-a12"><img src="https://www.didongmy.com/vnt_upload/product/14-CU-THUMB/14-new/thumbs/600_crop_iphone-14-red-1.jpg" style="height: 250px; width: 300px;"
+									alt="Right Banner" class=" img-fluid" /></a>
 						</div>
 					</div>
 				</div>
-			</div>
+			</div> -->
 
 
 
-			<div th:replace="/user/home/deal_of_the_day.html"></div>
+			
 
 
 			</div>

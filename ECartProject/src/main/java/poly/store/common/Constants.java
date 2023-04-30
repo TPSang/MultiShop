@@ -63,11 +63,14 @@ public class Constants {
 	public static final String USER_DISPLAY_ACCOUNT_INVOICE = "user/account/account_invoice";
 	public static final String USER_DISPLAY_ACCOUNT_BLOG2 = "user/home/blog2";
 	public static final String USER_DISPLAY_ACCOUNT_THUONGHIEU = "user/home/thuonghieu";
+	public static final String USER_DISPLAY_ACCOUNT_PASS = "user/account/pass";
 	/* List man hinh admin */
 	// Duong dan den man hinh trang chu quan tri
 	public static final String USER_DISPLAY_ADMIN_INDEX = "admin/dashboard/index";
 	// Duong dan den man hinh trang quan ly danh sach nhan vien
 	public static final String USER_DISPLAY_ADMIN_EMPLOYEE_LIST = "admin/employees/list";
+	// Duong dan den man hinh trang quan ly danh sach nhan vien
+	public static final String USER_DISPLAY_ADMIN_USER_LIST = "admin/employees/listUser";
 	// Duong dan den man hinh trang quan ly thong tin nhan vien
 	public static final String USER_DISPLAY_ADMIN_EMPLOYEE_FORM = "admin/employees/form";
 	// Duong dan den man hinh trang quan ly danh sach nhan vien

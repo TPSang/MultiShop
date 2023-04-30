@@ -10,6 +10,7 @@ package poly.store.service;
 
 import java.util.List;
 
+import poly.store.baseResponse.BaseResponese;
 import poly.store.entity.UserRole;
 
 /**
@@ -29,7 +30,7 @@ public interface UserRoleService{
 
 	List<UserRole> findAll();
 
-	List<UserRole> findAllAdminOrDirector();
+	List<?> findAllAdminOrDirector();
 
 	void delete(Integer id);
 	

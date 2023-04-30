@@ -101,7 +101,7 @@ app.controller("change-pass-ctrl", function ($scope, $http) {
   $scope.update = function(){
 	  if(checkForm($scope.form.password)){
         var item = angular.copy($scope.form);
-        $http.put(`/rest/user/account/change-password`, item).then(resp => {
+        $http.put(`/rest/user/account/pass`, item).then(resp => {
             location.reload();
         }).catch(error => {
             alert("Lỗi thêm sản phẩm")             

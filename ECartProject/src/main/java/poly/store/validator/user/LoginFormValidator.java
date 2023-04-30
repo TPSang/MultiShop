@@ -9,6 +9,7 @@
 package poly.store.validator.user;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.ValidationUtils;
@@ -30,6 +31,8 @@ public class LoginFormValidator implements Validator {
 	// Class cung cap cac ham lam viec voi bang User trong database
 	@Autowired	
 	UserService userService;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 
 	/**
 	 * Lien ket class UserLogin voi class bat loi

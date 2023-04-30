@@ -35,7 +35,7 @@ app.controller("favorite-ctrl", function ($scope, $http) {
           disLike();
         }
       })
-      .catch((error) => {});
+      .catch((error) => { });
   };
   $scope.load();
 
@@ -43,10 +43,12 @@ app.controller("favorite-ctrl", function ($scope, $http) {
     $http.post(`/rest/favorite/add/` + productId).then((resp) => {
       $scope.items = resp.data;
       if (typeof $scope.items.id === "undefined") {
+        alert("Mời bạn đăng nhập");
         location.href = "/login";
       } else {
         if ($scope.items.id != 0) {
           disLike();
+          alert("bạn đã yêu thích sản phẩm");
         } else {
           like();
         }
@@ -74,7 +76,7 @@ app.controller("favorite-ctrl", function ($scope, $http) {
           $("#pagination").show();
         }
       })
-      .catch((error) => {});
+      .catch((error) => { });
   };
   $scope.loadComment();
 
@@ -116,20 +118,20 @@ app.controller("favorite-ctrl", function ($scope, $http) {
         );
         $("#notification").show();
       }
-      else{
+      else {
         $("#notification").removeClass("alert-danger");
         $("#notification").addClass("alert-success");
         $("#notification").html(
           "<i class='fa fa-check-circle'></i> Cám ơn, vì phản hồi của bạn. Nó đã được gửi cho quản trị viên web để phê duyệt!"
         );
         $("#notification").show();
-        
+
         $scope.formComment.productId = productId;
         $scope.formComment.content = content;
         $scope.formComment.star = rating;
-        
+
         $http.post(`/rest/comment/form`, $scope.formComment).then((resp) => {
-          console.log(resp.data);  
+          console.log(resp.data);
         });
 
         $("#input-review").val("");
@@ -141,34 +143,34 @@ app.controller("favorite-ctrl", function ($scope, $http) {
   $scope.pager = {
     page: 0,
     size: 5.0,
-    get items(){
-        var start = this.page * this.size;
-        return $scope.listComment.slice(start, start + this.size);
-        
+    get items() {
+      var start = this.page * this.size;
+      return $scope.listComment.slice(start, start + this.size);
+
     },
     get count() {
-        return Math.ceil(1.0 * $scope.listComment.length / this.size);
+      return Math.ceil(1.0 * $scope.listComment.length / this.size);
     },
-    first(){
+    first() {
       this.page = 0;
     },
-    prev(){
+    prev() {
       this.page--;
-      if(this.page < 0){
+      if (this.page < 0) {
         this.last();
       }
-      
+
     },
-    next(){
+    next() {
       this.page++;
-      if(this.page >= this.count){
+      if (this.page >= this.count) {
         this.first();
       }
     },
-    last(){
-      this.page = this.count -1;
+    last() {
+      this.page = this.count - 1;
     }
-}
+  }
 
   // Xy ly comment
 });
